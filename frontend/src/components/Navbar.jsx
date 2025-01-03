@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <>
       <nav className='bg-white'>
-        <p>hutaosupremacy</p>
+        <p>hutaosupremacyNO</p>
       </nav>
     </>
   )

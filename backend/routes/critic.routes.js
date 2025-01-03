@@ -4,6 +4,7 @@ import {
   createCritic,
   updateCritic,
   deleteCritic,
+  authCritic,
 } from '../controllers/critic.controller.js'
 
 const router = express.Router()
@@ -15,5 +16,7 @@ router.post('/', createCritic)
 router.put('/:id', updateCritic)
 
 router.delete('/:id', deleteCritic)
+
+router.get('/:id', authCritic)
 
 export default router
