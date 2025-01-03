@@ -17,6 +17,6 @@ router.put('/:id', updateCritic)
 
 router.delete('/:id', deleteCritic)
 
-router.get('/:id', authCritic)
+router.get('/:username/:password', authCritic)
 
 export default router
