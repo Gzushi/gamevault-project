@@ -75,8 +75,14 @@ export const authCritic = async (req, res) => {
   }
 
   try {
-    const critic = await Critic.find({ id })
-    res.status(200).json({ success: true, message: 'found account' })
+    const critic = await Critic.find(id)
+    if (!critic) {
+      return res
+        .status(400)
+        .json({ success: false, message: 'Account not found' })
+    } else {
+      return res.status(200).json({ success: true, message: 'found account' })
+    }
   } catch (error) {
     console.log('error in fetching products: ', error.message)
     res.status(500).json({ success: false, message: 'Server Error' })
