@@ -66,3 +66,19 @@ export const deleteCritic = async (req, res) => {
     res.status(500).json({ success: false, message: 'Server Error' })
   }
 }
+
+export const authCritic = async (req, res) => {
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res
+      .status(404)
+      .json({ success: false, message: 'Product Not Found' })
+  }
+
+  try {
+    const critic = await Critic.find({ id })
+    res.status(200).json({ success: true, message: 'found account' })
+  } catch (error) {
+    console.log('error in fetching products: ', error.message)
+    res.status(500).json({ success: false, message: 'Server Error' })
+  }
+}
