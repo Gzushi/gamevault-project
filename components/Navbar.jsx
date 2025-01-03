@@ -3,7 +3,7 @@ import React from 'react'
 const Navbar = () => {
   return (
     <>
-      <nav className='bg-indigo-700'>
+      <nav className=''>
         <p>hutaosupremacy</p>
       </nav>
     </>
