@@ -1,18 +1,18 @@
-import { useState } from 'react'
-import Navbar from '../components/Navbar'
-import Main from '../components/Main'
+import { useState } from "react";
+import Navbar from "../components/Navbar";
+import Main from "../components/Main";
+import Footer from "../components/Footer";
 
-function App() {  
-  const [count, setCount] = useState(0)
+function App() {
+    const [count, setCount] = useState(0);
 
-  return (
-    <>
-      <Navbar />
-      <Main />
-
-      <h1>EHE</h1>
-    </>
-  )
+    return (
+        <div className="w-full h-full box-border">
+            <Navbar />
+            <Main />
+            <Footer />
+        </div>
+    );
 }
 
-export default App
+export default App;
