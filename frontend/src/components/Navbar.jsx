@@ -4,7 +4,7 @@ import profile from '../assets/images/Aether.jpg'
 
 const Navbar = () => {
     return (
-        <nav className='bg-[#212121] text-[#D4D4D4] p-6 flex justify-between'>
+        <nav className='bg-[#212121] text-[#D4D4D4] p-[2%] flex justify-between'>
             <div className='flex justify-between items-center gap-8'>
                 <div>
                     <a href="http://localhost:5173">
@@ -12,7 +12,7 @@ const Navbar = () => {
                     </a>
                 </div>
                 <div>
-                    <input className='bg-[#2B2B2B] flex p-1 pl-4 pr-20 border-2 border-[#2B2B2B] outline-none rounded-md' type="text" placeholder='Search'/>
+                    <input className='bg-[#212121] flex p-[1dvh] pl-[4dvh] pr-[20dvh] border-2 border-[#2B2B2B] outline-none rounded-md' type="text" placeholder='Search'/>
                 </div>
             </div>
             <div className='flex gap-4 items-center'>
