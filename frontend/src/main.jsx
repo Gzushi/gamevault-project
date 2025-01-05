@@ -6,6 +6,9 @@ import App from './pages/App'
 import LogIn from './pages/LogIn'
 import SignUp from './pages/SignUp'
 import AddGames from './pages/AddGames'
+import GameProfile from './pages/GameProfile'
+import UserProfile from './pages/UserProfile'
+import DevProfile from './pages/DevProfile'
 
 const router = createBrowserRouter([
   {
@@ -23,6 +26,18 @@ const router = createBrowserRouter([
   {
     path: '/addgames',
     element: <AddGames />,
+  },
+  {
+    path: '/gameprofile',
+    element: <GameProfile />,
+  },
+  {
+    path: '/userprofile',
+    element: <UserProfile />,
+  },
+  {
+    path: '/devprofile',
+    element: <DevProfile />,
   },
 ])
 
