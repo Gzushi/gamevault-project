@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import logo from '../assets/images/tempgamelogo.png'
 import DefaultLayout from '../layouts/defaultlayout'
 import addlist from '../assets/images/plus-circle.svg'
@@ -10,9 +10,79 @@ import windows from '../assets/images/windows.png'
 import ios from '../assets/images/ios.png'
 import ps4 from '../assets/images/ps4.png'
 import android from '../assets/images/android.png'
-import GameCard from '../components/GameCard'
+import { useGamesStore } from '../store/games'
+import { useParams } from 'react-router-dom'
+import { useState } from 'react'
 
 const GameProfile = () => {
+  const { fetchGameById, game } = useGamesStore()
+  const { randomGames, setRandomGames } = useState([])
+  // const { id } = useParams()
+
+  useEffect(() => {
+    // fetchGameById(id)
+    // Fetch game ids
+    // For 3 time
+    // for every loop get a random id from array
+    // fetch game using FetchGameById([gameid])
+    // put game in array
+    // setRandomGames()
+    // test.forEach(t => {
+    //   fetchGameById(t)
+    // })
+    const testGames = async () => {
+      const test = [
+        '677bc2bfc1c842b3cf9090ef',
+        '677bc2bfc1c842b3cf9090ef',
+        '677bcea36a9683b7e0e060fd',
+      ]
+
+      test.forEach(async (id) => {
+        const randomGame = await fetchGameById(id)
+        const game = (
+          <div className='flex justify-items-center content-center py-3 my-2 mx-5'>
+            <div className='bg-[#363636] flex flex-col w-100 gap-4'>
+              <a href='http://localhost:5173/gameprofile'>
+                <img
+                  src={logo}
+                  alt='templogo'
+                  className='w-[320px] h-[160px]'
+                />
+                <div className='flex items-center p-1 gap-2'>
+                  <img src={profile} alt='profiletemp' className='h-10' />
+                  <div>
+                    <h1>{randomGame.title}</h1>
+                    <p>Hoyoverse</p>
+                  </div>
+                </div>
+                <div className='bg-[#3B3B3B] flex justify-between'>
+                  <div>
+                    <p className='pl-1 pb-1'>Free</p>
+                  </div>
+                  <div className='flex gap-1 pt-1 pr-1'>
+                    <img src={windows} alt='Windows' className='h-[20px]' />
+                    <img src={ios} alt='iOS' className='h-[20px]' />
+                    <img src={ps4} alt='PS4' className='h-[20px]' />
+                    <img src={android} alt='Android' className='h-[20px]' />
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        )
+
+        setRandomGames([...randomGames, game])
+      })
+    }
+
+    testGames()
+    console.log(randomGames)
+  }, [randomGames])
+
+  useEffect(() => {
+    console.log(game)
+  }, [game])
+
   return (
     <DefaultLayout>
       <div className='bg-[#2B2B2B] text-[#D4D4D4] font-sans px-4 py-6'>
@@ -21,12 +91,12 @@ const GameProfile = () => {
           <div className='flex flex-col justify-between items-center w-full h-full mx-2'>
             <div className='bg-[#212121] flex flex-col gap-3 min-h-60 rounded-md px-4 py-2'>
               <div className='flex flex-row gap-5 min-h-14'>
-                <h1 className='text-4xl'>Genshin Impact</h1>
+                <h1 className='text-4xl'>{game.title}</h1>
               </div>
-              <p>Description: </p>
+              <p>Description: {game.desc}</p>
               <div>
-                <p>Year Released: </p>
-                <p>Price: </p>
+                <p>Year Released: {game.releaseDate}</p>
+                <p>Price: {game.price}</p>
                 <div className='flex flex-row gap-1'>
                   <p>Platforms: </p>
                   <img src={windows} alt='Windows' className='h-[20px]' />
@@ -36,7 +106,7 @@ const GameProfile = () => {
                 </div>
               </div>
               <div className='flex flex-col'>
-                <div>Genres of this Game:</div>
+                <div>Genres of this Game: </div>
                 <div className='flex flex-wrap gap-2'>
                   <div className='bg-[#363636] w-min px-1 py-0.5 rounded-md'>
                     Action
@@ -91,10 +161,12 @@ const GameProfile = () => {
         </div>
         <div className='pt-[0%] pl-[1.5%] flex flex-row'>
           <div className='grid grid-col-[auto_1fr] pr-[5%]'>
-            <div className='flex flex-row justify-center pl-2 py-5'>
+            <div className='bg-[#171717] flex flex-row justify-center pl-2 py-5'>
               <p className='px-2'>Other Games!</p>
             </div>
-            <div className='bg-[#2B2B2B] w-100 h-full'>
+            <div className='bg-[#171717] w-100 h-full'>
+              {/* loop through all random game */}
+              {randomGames}
               <div className='flex justify-items-center content-center py-3 my-2 mx-5'>
                 <div className='bg-[#363636] flex flex-col w-100 gap-4'>
                   <a href='http://localhost:5173/gameprofile'>
@@ -123,116 +195,61 @@ const GameProfile = () => {
                     </div>
                   </a>
                 </div>
-            </div>
-            <div className='pt-[0%] pl-[1.5%] flex flex-row'>
-                <div className='grid grid-col-[auto_1fr] pr-[5%]'>
-                    <div className='bg-[#171717] flex flex-row justify-center pl-2 py-5'>
-                        <p className='px-2'>Other Games!</p>
+              </div>
+              <div className='flex justify-items-center content-center py-3 my-2 mx-5'>
+                <div className='bg-[#363636] flex flex-col w-100 gap-4'>
+                  <a href='http://localhost:5173/gameprofile'>
+                    <img
+                      src={logo}
+                      alt='templogo'
+                      className='w-[320px] h-[160px]'
+                    />
+                    <div className='flex items-center p-1 gap-2'>
+                      <img src={profile} alt='profiletemp' className='h-10' />
+                      <div>
+                        <h1>Genshin Impact</h1>
+                        <p>Hoyoverse</p>
+                      </div>
                     </div>
-                    <div className='bg-[#171717] w-100 h-full'>
-                        <div className='flex justify-items-center content-center py-3 my-2 mx-5'>
-                            <div className='bg-[#363636] flex flex-col w-100 gap-4'>
-                                <a href="http://localhost:5173/gameprofile">
-                                    <img src={ logo } alt="templogo" className='w-[320px] h-[160px]'/>
-                                    <div className='flex items-center p-1 gap-2'>
-                                        <img src={ profile } alt="profiletemp" className='h-10'/>
-                                        <div>
-                                            <h1>Genshin Impact</h1>
-                                            <p>Hoyoverse</p>
-                                        </div>
-                                    </div>
-                                    <div className='bg-[#3B3B3B] flex justify-between'>
-                                        <div>
-                                            <p className='pl-1 pb-1'>Free</p>
-                                        </div>
-                                        <div className='flex gap-1 pt-1 pr-1'>
-                                            <img src={ windows } alt="Windows" className='h-[20px]' />
-                                            <img src={ ios } alt="iOS" className='h-[20px]' />
-                                            <img src={ ps4 } alt="PS4" className='h-[20px]' />
-                                            <img src={ android } alt="Android" className='h-[20px]' />
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className='flex justify-items-center content-center py-3 my-2 mx-5'>
-                            <div className='bg-[#363636] flex flex-col w-100 gap-4'>
-                                <a href="http://localhost:5173/gameprofile">
-                                    <img src={ logo } alt="templogo" className='w-[320px] h-[160px]'/>
-                                    <div className='flex items-center p-1 gap-2'>
-                                        <img src={ profile } alt="profiletemp" className='h-10'/>
-                                        <div>
-                                            <h1>Genshin Impact</h1>
-                                            <p>Hoyoverse</p>
-                                        </div>
-                                    </div>
-                                    <div className='bg-[#3B3B3B] flex justify-between'>
-                                        <div>
-                                            <p className='pl-1 pb-1'>Free</p>
-                                        </div>
-                                        <div className='flex gap-1 pt-1 pr-1'>
-                                            <img src={ windows } alt="Windows" className='h-[20px]' />
-                                            <img src={ ios } alt="iOS" className='h-[20px]' />
-                                            <img src={ ps4 } alt="PS4" className='h-[20px]' />
-                                            <img src={ android } alt="Android" className='h-[20px]' />
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className='flex justify-items-center content-center py-3 my-2 mx-5'>
-                            <div className='bg-[#363636] flex flex-col w-100 gap-4'>
-                                <a href="http://localhost:5173/gameprofile">
-                                    <img src={ logo } alt="templogo" className='w-[320px] h-[160px]'/>
-                                    <div className='flex items-center p-1 gap-2'>
-                                        <img src={ profile } alt="profiletemp" className='h-10'/>
-                                        <div>
-                                            <h1>Genshin Impact</h1>
-                                            <p>Hoyoverse</p>
-                                        </div>
-                                    </div>
-                                    <div className='bg-[#3B3B3B] flex justify-between'>
-                                        <div>
-                                            <p className='pl-1 pb-1'>Free</p>
-                                        </div>
-                                        <div className='flex gap-1 pt-1 pr-1'>
-                                            <img src={ windows } alt="Windows" className='h-[20px]' />
-                                            <img src={ ios } alt="iOS" className='h-[20px]' />
-                                            <img src={ ps4 } alt="PS4" className='h-[20px]' />
-                                            <img src={ android } alt="Android" className='h-[20px]' />
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                    <div className='bg-[#3B3B3B] flex justify-between'>
+                      <div>
+                        <p className='pl-1 pb-1'>Free</p>
+                      </div>
+                      <div className='flex gap-1 pt-1 pr-1'>
+                        <img src={windows} alt='Windows' className='h-[20px]' />
+                        <img src={ios} alt='iOS' className='h-[20px]' />
+                        <img src={ps4} alt='PS4' className='h-[20px]' />
+                        <img src={android} alt='Android' className='h-[20px]' />
+                      </div>
                     </div>
                   </a>
                 </div>
-                <div className='w-full pl-10%'>
-                    <div className='bg-[#171717] grid grid-cols-[repeat(3,1fr)] p-4 gap-2 rounded-md'>
-                        <img src={ logo } alt="templogo" className='w-full' />
-                        <img src={ logo } alt="templogo" className='w-full' />
-                        <img src={ logo } alt="templogo" className='w-full' />
+              </div>
+              <div className='flex justify-items-center content-center py-3 my-2 mx-5'>
+                <div className='bg-[#363636] flex flex-col w-100 gap-4'>
+                  <a href='http://localhost:5173/gameprofile'>
+                    <img
+                      src={logo}
+                      alt='templogo'
+                      className='w-[320px] h-[160px]'
+                    />
+                    <div className='flex items-center p-1 gap-2'>
+                      <img src={profile} alt='profiletemp' className='h-10' />
+                      <div>
+                        <h1>Genshin Impact</h1>
+                        <p>Hoyoverse</p>
+                      </div>
                     </div>
-                    <div className='bg-[#171717] flex flex-col w-100 gap-4 mt-4 rounded-md'>
-                        <div className='flex flex-col w-100 gap-4 px-4 py-6  rounded-sm'>
-                            <div className='bg-[#212121] flex flex-col justify-between gap-2 p-4'>
-                                <div className='pl-4'>
-                                    <h1>*Title*</h1>
-                                </div>
-                                <div className='bg-[#2B2B2B] p-4 rounded-md'>
-                                    <p>*Description*</p>
-                                </div>
-                            </div>
-                            <div className='bg-[#212121] flex flex-col justify-between gap-2 p-4'>
-                                <div className='pl-4'>
-                                    <h1>*Title*</h1>
-                                </div>
-                                <div className='bg-[#2B2B2B] p-4 rounded-md'>
-                                    <p>*Description*</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div className='bg-[#3B3B3B] flex justify-between'>
+                      <div>
+                        <p className='pl-1 pb-1'>Free</p>
+                      </div>
+                      <div className='flex gap-1 pt-1 pr-1'>
+                        <img src={windows} alt='Windows' className='h-[20px]' />
+                        <img src={ios} alt='iOS' className='h-[20px]' />
+                        <img src={ps4} alt='PS4' className='h-[20px]' />
+                        <img src={android} alt='Android' className='h-[20px]' />
+                      </div>
                     </div>
                   </a>
                 </div>
@@ -240,13 +257,30 @@ const GameProfile = () => {
             </div>
           </div>
           <div className='w-full pl-10%'>
-            <div className='grid grid-cols-[repeat(3,1fr)] gap-2'>
+            <div className='bg-[#171717] grid grid-cols-[repeat(3,1fr)] p-4 gap-2 rounded-md'>
               <img src={logo} alt='templogo' className='w-full' />
               <img src={logo} alt='templogo' className='w-full' />
               <img src={logo} alt='templogo' className='w-full' />
             </div>
-            <div>
-              <img src={profile} alt='profiletemp' className='w-[40%]' />
+            <div className='bg-[#171717] flex flex-col w-100 gap-4 mt-4 rounded-md'>
+              <div className='flex flex-col w-100 gap-4 px-4 py-6  rounded-sm'>
+                <div className='bg-[#212121] flex flex-col justify-between gap-2 p-4'>
+                  <div className='pl-4'>
+                    <h1>*Title*</h1>
+                  </div>
+                  <div className='bg-[#2B2B2B] p-4 rounded-md'>
+                    <p>*Description*</p>
+                  </div>
+                </div>
+                <div className='bg-[#212121] flex flex-col justify-between gap-2 p-4'>
+                  <div className='pl-4'>
+                    <h1>*Title*</h1>
+                  </div>
+                  <div className='bg-[#2B2B2B] p-4 rounded-md'>
+                    <p>*Description*</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

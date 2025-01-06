@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 
 export const useGamesStore = create((set) => ({
+  game: {},
   games: [],
   setGames: (games) => set({ games }),
   createGame: async (newGame) => {
@@ -47,5 +48,11 @@ export const useGamesStore = create((set) => ({
     const res = await fetch('/api/games')
     const data = await res.json()
     set({ games: data.data })
+  },
+  fetchGameById: async (id) => {
+    const res = await fetch(`/api/games/${id}`)
+    const data = await res.json()
+    set({ game: data.data })
+    return data.data
   },
 }))
