@@ -8,7 +8,7 @@ const DevProfile = () => {
         <div className='w-full h-full box-border'>
             <Navbar />
         </div>
-        <div className='bg-[#2E2E2E] text-[#D4D4D4] h-screen'>
+        <div className='bg-[#2E2E2E] text-[#D4D4D4] font-sans h-screen'>
             <div>
                 
             </div>

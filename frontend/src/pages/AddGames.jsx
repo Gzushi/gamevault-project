@@ -63,6 +63,7 @@ const AddGames = () => {
     }))
   }
 
+
   const handleArrayChange = (e) => {
     const { name, value } = e.target
     setNewGame((prevGame) => ({

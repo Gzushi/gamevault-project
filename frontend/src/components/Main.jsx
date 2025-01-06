@@ -3,7 +3,7 @@ import { useGamesStore } from '../store/games'
 import GameCard from './GameCard'
 
 const Main = () => {
-  const { fetchGames, games } = useGamesStore()
+const { fetchGames, games } = useGamesStore()
 
   useEffect(() => {
     fetchGames()
