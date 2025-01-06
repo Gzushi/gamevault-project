@@ -19,26 +19,9 @@ export const useCriticStore = create((set) => ({
     set((state) => ({ critic: [...state.critic, data.data] }))
     return { success: true, message: 'Account recorded' }
   },
-  authCritic: async (credentials) => {
-    try {
-      const res = await fetch('/api/critics/', {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify(credentials),
-      })
-
-      if (!res.ok) {
-        const errorData = await res.json()
-        return { success: false, message: errorData.message || 'Server Error' }
-      }
-
-      const data = await res.json()
-      return { success: true, message: 'Login successful', data }
-    } catch (error) {
-      console.error('Error logging in:', error)
-      return { success: false, message: 'Server Error' }
-    }
+  fetchCritic: async () => {
+    const res = await fetch('/api/critics')
+    const data = await res.json()
+    set({ critic: data.data })
   },
 }))
