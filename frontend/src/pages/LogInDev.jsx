@@ -95,8 +95,8 @@ const LogIn = () => {
           <p>__________________</p>
         </div>
         <div className='flex flex-row gap-2'>
-          <p>Don't have an account?</p>
-          <a href='http://localhost:5173/signup' className='text-[#5b1a87]'>
+          <p>Don't have a DEV account?</p>
+          <a href='http://localhost:5173/signupdev' className='text-[#5b1a87]'>
             Sign Up!
           </a>
         </div>
