@@ -8,7 +8,7 @@ import android from '../assets/images/android.png'
 
 const Main = () => {
     return (
-        <main className='flex flex-col h-full text-[#D4D4D4]'>
+        <main className='flex flex-col h-full text-[#D4D4D4] font-sans'>
             <div className='bg-[#2B2B2B] w-full flex flex-col pt-4 pb-2'>
                 <h2 className='self-center text-2xl'>Browse Games!</h2>
             </div>

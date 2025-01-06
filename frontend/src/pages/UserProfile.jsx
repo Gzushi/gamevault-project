@@ -1,5 +1,5 @@
 import React from 'react'
-import DefaultLayout from "../layouts/defaultlayout";
+import DefaultLayout from "../layouts/defaultlayout"
 import userprofile from '../assets/images/Aether.jpg'
 import follow from '../assets/images/heart.svg'
 import report from '../assets/images/alert-triangle.svg'
@@ -17,7 +17,7 @@ import android from '../assets/images/android.png'
 const UserProfile = () => {
   return (
     <DefaultLayout>
-        <div className='bg-[#2B2B2B] text-[#D4D4D4]'>
+        <div className='bg-[#2B2B2B] text-[#D4D4D4] font-sans'>
             <div className='bg-[#D4A35E] flex flex-row items-end'>
                 <div className='p-[2%] pt-[1%] pl-[4%]'>
                     <img src={ userprofile } alt="Aether" className='w-[200px] h-[200px] rounded-[50%] translate-y-[75px]'/>
@@ -26,7 +26,7 @@ const UserProfile = () => {
                     <div>
                         <h1 className='text-2xl font-medium pb-[5%]'>Aether</h1>
                     </div>
-                    <div className='flex flex-row-8 pl-[1%] pb-[1%] gap-2'>
+                    <div className='flex flex-row-8 pl-[1%] pb-[5%] gap-2'>
                         <button>
                             <img src={ thumbsup } alt="Thumbs Up" />
                         </button>
@@ -44,7 +44,7 @@ const UserProfile = () => {
             </div>
             <div className='pt-[5%] pl-[1.5%] flex flex-row'>
                 <div className='grid grid-col-[auto_1fr] pr-[5%]'>
-                    <div className='bg-[#212121] flex flex-row gap-5 pt-4 px-4 w-min rounded-2xl'>
+                    <div className='bg-[#212121] flex flex-row gap-5 py-2 px-4 w-min rounded-2xl'>
                         <div className='flex flex-col items-center'>
                             <p>##</p>
                             <p>Following</p>
@@ -63,9 +63,9 @@ const UserProfile = () => {
                         </div>
                     </div>
                     <div className='flex flex-row pl-2 py-5'>
-                        <p>___________</p>
+                        <p>______________</p>
                         <p className='px-2'>Other Games!</p>
-                        <p>___________</p>
+                        <p>______________</p>
                     </div>
                     <div className='bg-[#2B2B2B] w-100 h-full'>
                         <div className='flex justify-items-center content-center py-3 my-2 mx-5'>

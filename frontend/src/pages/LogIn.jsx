@@ -30,7 +30,7 @@ const LogIn = () => {
   }
 
   return (
-    <div className='bg-[#2E2E2E] text-[#D4D4D4] h-screen flex flex-col items-center pt-20'>
+    <div className='bg-[#2E2E2E] text-[#D4D4D4] font-sans h-screen flex flex-col items-center pt-20'>
         <div>
             <img src={ logo } alt='GameVault' className='h-[120px]'/>
         </div>
