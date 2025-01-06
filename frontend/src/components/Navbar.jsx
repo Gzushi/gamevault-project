@@ -12,7 +12,7 @@ const Navbar = () => {
                     </a>
                 </div>
                 <div>
-                    <input className='bg-[#212121] flex w-full max-w-[12rem] border-2 border-[#2B2B2B] outline-none rounded-md' type="text" placeholder='Search'/>
+                    <input className='bg-[#212121] flex w-full max-w-[12rem] px-3 py-0.5 border-2 border-[#2B2B2B] outline-none rounded-md' type="text" placeholder='Search'/>
                 </div>
             </div>
             <div className='flex gap-4 items-center'>

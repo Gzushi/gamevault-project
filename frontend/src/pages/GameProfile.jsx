@@ -1,5 +1,5 @@
-import { div } from 'framer-motion/client'
 import React from 'react'
+import Grid from "../components/OneColumnGrid";
 import logo from '../assets/images/tempgamelogo.png'
 import DefaultLayout from "../layouts/defaultlayout"
 import addlist from "../assets/images/plus-circle.svg"
@@ -18,7 +18,7 @@ const GameProfile = () => {
     <DefaultLayout> 
         <div className='bg-[#2B2B2B] text-[#D4D4D4] font-sans px-4 py-6'>
             <div className='grid grid-cols-[60%_1fr] pb-4'>
-                <img src={ logo } alt="tempgamelogo" className='w-full'/>
+                <img src={ logo } alt="tempgamelogo" className='bg-[#212121] p-0.5 w-full rounded-sm'/>
                 <div className='flex flex-col justify-between items-center w-full h-full mx-2'>
                     <div className='bg-[#212121] flex flex-col gap-3 min-h-60 rounded-md px-4 py-2'>
                         <div className='flex flex-row gap-5 min-h-14'>
@@ -40,7 +40,7 @@ const GameProfile = () => {
                             <div>
                                 Genres of this Game:
                             </div>
-                            <div className='flex flex-wrap gap-2'>
+                            <div className='flex flex-wrap gap-1'>
                                 <div className='bg-[#363636] w-min px-1 py-0.5 rounded-md'>Action</div>   
                                 <div className='bg-[#363636] w-min px-1 py-0.5 rounded-md'>Adventure</div>
                                 <div className='bg-[#363636] w-min px-1 py-0.5 rounded-md'>Fantasy</div>
@@ -50,7 +50,7 @@ const GameProfile = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='bg-[#212121] flex flex-row gap-5 w-min py-2 px-4 rounded-2xl'>
+                    <div className='bg-[#212121] flex flex-row gap-5 w-min py-2 px-[1%] rounded-2xl'>
                         <div className='flex flex-col items-center'>
                             <p>##</p>
                             <p>Followers</p>
@@ -80,117 +80,7 @@ const GameProfile = () => {
                     </div>
                 </div>
             </div>
-            <div className='pt-[0%] pl-[1.5%] flex flex-row'>
-                <div className='grid grid-col-[auto_1fr] pr-[5%]'>
-                    <div className='bg-[#171717] flex flex-row justify-center pl-2 py-5'>
-                        <p className='px-2'>Other Games!</p>
-                    </div>
-                    <div className='bg-[#171717] w-100 h-full'>
-                        <div className='flex justify-items-center content-center py-3 my-2 mx-5'>
-                            <div className='bg-[#363636] flex flex-col w-100 gap-4'>
-                                <a href="http://localhost:5173/gameprofile">
-                                    <img src={ logo } alt="templogo" className='w-[320px] h-[160px]'/>
-                                    <div className='flex items-center p-1 gap-2'>
-                                        <img src={ profile } alt="profiletemp" className='h-10'/>
-                                        <div>
-                                            <h1>Genshin Impact</h1>
-                                            <p>Hoyoverse</p>
-                                        </div>
-                                    </div>
-                                    <div className='bg-[#3B3B3B] flex justify-between'>
-                                        <div>
-                                            <p className='pl-1 pb-1'>Free</p>
-                                        </div>
-                                        <div className='flex gap-1 pt-1 pr-1'>
-                                            <img src={ windows } alt="Windows" className='h-[20px]' />
-                                            <img src={ ios } alt="iOS" className='h-[20px]' />
-                                            <img src={ ps4 } alt="PS4" className='h-[20px]' />
-                                            <img src={ android } alt="Android" className='h-[20px]' />
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className='flex justify-items-center content-center py-3 my-2 mx-5'>
-                            <div className='bg-[#363636] flex flex-col w-100 gap-4'>
-                                <a href="http://localhost:5173/gameprofile">
-                                    <img src={ logo } alt="templogo" className='w-[320px] h-[160px]'/>
-                                    <div className='flex items-center p-1 gap-2'>
-                                        <img src={ profile } alt="profiletemp" className='h-10'/>
-                                        <div>
-                                            <h1>Genshin Impact</h1>
-                                            <p>Hoyoverse</p>
-                                        </div>
-                                    </div>
-                                    <div className='bg-[#3B3B3B] flex justify-between'>
-                                        <div>
-                                            <p className='pl-1 pb-1'>Free</p>
-                                        </div>
-                                        <div className='flex gap-1 pt-1 pr-1'>
-                                            <img src={ windows } alt="Windows" className='h-[20px]' />
-                                            <img src={ ios } alt="iOS" className='h-[20px]' />
-                                            <img src={ ps4 } alt="PS4" className='h-[20px]' />
-                                            <img src={ android } alt="Android" className='h-[20px]' />
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div className='flex justify-items-center content-center py-3 my-2 mx-5'>
-                            <div className='bg-[#363636] flex flex-col w-100 gap-4'>
-                                <a href="http://localhost:5173/gameprofile">
-                                    <img src={ logo } alt="templogo" className='w-[320px] h-[160px]'/>
-                                    <div className='flex items-center p-1 gap-2'>
-                                        <img src={ profile } alt="profiletemp" className='h-10'/>
-                                        <div>
-                                            <h1>Genshin Impact</h1>
-                                            <p>Hoyoverse</p>
-                                        </div>
-                                    </div>
-                                    <div className='bg-[#3B3B3B] flex justify-between'>
-                                        <div>
-                                            <p className='pl-1 pb-1'>Free</p>
-                                        </div>
-                                        <div className='flex gap-1 pt-1 pr-1'>
-                                            <img src={ windows } alt="Windows" className='h-[20px]' />
-                                            <img src={ ios } alt="iOS" className='h-[20px]' />
-                                            <img src={ ps4 } alt="PS4" className='h-[20px]' />
-                                            <img src={ android } alt="Android" className='h-[20px]' />
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className='w-full pl-10%'>
-                    <div className='bg-[#171717] grid grid-cols-[repeat(3,1fr)] p-4 gap-2 rounded-md'>
-                        <img src={ logo } alt="templogo" className='w-full' />
-                        <img src={ logo } alt="templogo" className='w-full' />
-                        <img src={ logo } alt="templogo" className='w-full' />
-                    </div>
-                    <div className='bg-[#171717] flex flex-col w-100 gap-4 mt-4 rounded-md'>
-                        <div className='flex flex-col w-100 gap-4 px-4 py-6  rounded-sm'>
-                            <div className='bg-[#212121] flex flex-col justify-between gap-2 p-4'>
-                                <div className='pl-4'>
-                                    <h1>*Title*</h1>
-                                </div>
-                                <div className='bg-[#2B2B2B] p-4 rounded-md'>
-                                    <p>*Description*</p>
-                                </div>
-                            </div>
-                            <div className='bg-[#212121] flex flex-col justify-between gap-2 p-4'>
-                                <div className='pl-4'>
-                                    <h1>*Title*</h1>
-                                </div>
-                                <div className='bg-[#2B2B2B] p-4 rounded-md'>
-                                    <p>*Description*</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>  
-            </div>
+            <Grid />
         </div>
     </DefaultLayout>
   )
