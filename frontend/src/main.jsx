@@ -36,6 +36,10 @@ const router = createBrowserRouter([
     element: <GameProfile />,
   },
   {
+    path: '/gameprofile/:id',
+    element: <GameProfile />,
+  },
+  {
     path: '/userprofile',
     element: <UserProfile />,
   },
