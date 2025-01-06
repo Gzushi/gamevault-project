@@ -7,7 +7,6 @@ import android from '../assets/images/android.png'
 
 const GameCard = ({ game }) => {
   const navigate = useNavigate()
-  console.log(game._id)
 
   return (
     <div
