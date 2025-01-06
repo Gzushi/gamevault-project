@@ -31,6 +31,7 @@ const GameCard = ({ game }) => {
         </div>
       </a>
     </div>
+    //HELLO
   )
 }
 
