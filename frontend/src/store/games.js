@@ -12,8 +12,11 @@ export const useGamesStore = create((set) => ({
       !newGame.releaseDate ||
       !newGame.externalLink ||
       !newGame.developer ||
-      !newGame.systemRequire ||
-      !newGame.image
+      !newGame.platform ||
+      !newGame.image ||
+      !newGame.icon ||
+      !newGame.gplay1 ||
+      !newGame.gplay2
     ) {
       return { success: false, message: 'Please fill in all fields.' }
     }
@@ -39,5 +42,10 @@ export const useGamesStore = create((set) => ({
       console.error('Error adding game:', error)
       return { success: false, message: 'Server Error' }
     }
+  },
+  fetchGames: async () => {
+    const res = await fetch('/api/games')
+    const data = await res.json()
+    set({ games: data.data })
   },
 }))

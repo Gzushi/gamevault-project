@@ -21,7 +21,7 @@ export const createGames = async (req, res) => {
     !games.releaseDate ||
     !games.externalLink ||
     !games.developer ||
-    !games.systemRequire ||
+    !games.platform ||
     !games.image
   ) {
     return res

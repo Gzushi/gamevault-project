@@ -11,7 +11,7 @@ const gamesSchema = new mongoose.Schema(
       required: true,
     },
     genre: {
-      type: String,
+      type: [String],
       required: true,
     },
     desc: {
@@ -30,11 +30,23 @@ const gamesSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    systemRequire: {
-      type: String,
+    platform: {
+      type: [String],
       required: true,
     },
     image: {
+      type: String,
+      required: true,
+    },
+    icon: {
+      type: String,
+      required: true,
+    },
+    gplay1: {
+      type: String,
+      required: true,
+    },
+    gplay2: {
       type: String,
       required: true,
     },
