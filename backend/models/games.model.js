@@ -67,6 +67,22 @@ const gamesSchema = new mongoose.Schema(
                 },
             },
         ],
+        devLogs: [
+            {
+                title: {
+                    type: String,
+                    required: true,
+                },
+                comment: {
+                    type: String,
+                    required: true,
+                },
+                commentDate: {
+                    type: Date,
+                    default: Date.now, // Automatically set to current date
+                },
+            },
+        ],
     },
     {
         timestamps: true, //createdAt, updatedAt section here sir

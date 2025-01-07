@@ -16,24 +16,27 @@ import { useParams } from 'react-router-dom'
 import { useState } from 'react'
 
 const GameProfile = () => {
-const { fetchGameById, fetchCommentsForGame } = useGamesStore()
+const { fetchGameById, fetchDataForGame } = useGamesStore()
 const [ game, setGame ] = useState()
 const [ randomGames, setRandomGames ] = useState([])
+const [ comments, setComments ] = useState([])
+const [ showComments, setShowComments ] = useState(false)
+const [ devLogs, setDevLogs ] = useState([])
 const { id } = useParams()
 
 useEffect(() => {
     const renderGame = async () => {
-        const data = await fetchGameById(id);
-        setGame(data);
-        console.log(data)
-
         const randomGameIds = ['677bc2bfc1c842b3cf9090ef', '677bcea36a9683b7e0e060fd'];
+        const data = await fetchGameById(id);
+
+        setGame(data);
+        setComments(await fetchDataForGame(id, "comments"))
+        setDevLogs(await fetchDataForGame(id, "devLogs"))
 
         for (const id of randomGameIds) {
             const randomGame = await fetchGameById(id);
             setRandomGames((prevRandomGames) => [...prevRandomGames, randomGame]);
         }
-        console.log(await fetchCommentsForGame(id))
     };
 
 
@@ -42,6 +45,11 @@ useEffect(() => {
 
 return (
     <DefaultLayout>
+        {showComments && (
+            <div className='fixed w-full max-w-[800px] left-[50%] translate-x-[-50%] min-h-screen bg-blue-100'>
+                <button onClick={() => setShowComments(false)}>X</button>
+            </div>
+        )}
         <div className='bg-[#2B2B2B] text-[#D4D4D4] font-sans px-4 py-6'>
             <div className='grid grid-cols-[60%_1fr] pb-4'>
                 <img src={ game?.image } alt="tempgamelogo" className='bg-[#270E3F] p-0.5 w-full rounded-sm'/>
@@ -101,7 +109,7 @@ return (
                             </button>
                         </div>
                         <div className='self-center'>
-                            <button>
+                            <button onClick={() => setShowComments(true)}>
                                 <h1 className='bg-[#2B2B2B] p-1 flex-fit rounded-md'>Comments</h1>
                             </button>
                         </div>

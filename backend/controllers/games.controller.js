@@ -69,6 +69,20 @@ export const getCommentsForGame = async (req, res) => {
     }
 };
 
+export const getDevLogsForGame = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const comments = await Games.findById(id, "devLogs");
+        res.status(200).json({ success: true, data: comments });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error fetching comments",
+        });
+    }
+};
+
 export const updateGames = async (req, res) => {
     const { id } = req.params;
     const games = req.body;

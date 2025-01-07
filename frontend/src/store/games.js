@@ -57,10 +57,9 @@ export const useGamesStore = create((set) => ({
         // set({ game: data.data });
         return data.data;
     },
-    fetchCommentsForGame: async (id) => {
-        console.log(id);
-        const res = await fetch(`/api/games/${id}/comments`);
-        const data = await res.json();
-        return data.data;
+    fetchDataForGame: async (id, data) => {
+        const res = await fetch(`/api/games/${id}/${data}`);
+        const json = await res.json();
+        return json.data;
     },
 }));
