@@ -51,6 +51,11 @@ export const useGamesStore = create((set) => ({
         const data = await res.json();
         set({ games: data.data });
     },
+    fetchAllGames: async () => {
+        const res = await fetch("/api/games");
+        const json = await res.json();
+        return json.data;
+    },
     fetchGameById: async (id) => {
         const res = await fetch(`/api/games/${id}`);
         const data = await res.json();

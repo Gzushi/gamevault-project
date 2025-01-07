@@ -22,7 +22,7 @@ import android from '../assets/images/android.png'
 import exit from '../assets/images/x.svg'
 
 const GameProfile = () => {
-const { fetchGameById, fetchDataForGame } = useGamesStore()
+const { fetchAllGames, fetchGameById, fetchDataForGame } = useGamesStore()
 const [ game, setGame ] = useState()
 const [ randomGames, setRandomGames ] = useState([])
 const [ comments, setComments ] = useState([])
@@ -30,19 +30,28 @@ const [ showComments, setShowComments ] = useState(false)
 const [ devLogs, setDevLogs ] = useState([])
 const { id } = useParams()
 
+function getRandomNumber(max) {
+    if (max < 1) {
+      throw new Error("Max value must be at least 1.");
+    }
+    return Math.floor(Math.random() * max) + 1;
+}
+
 useEffect(() => {
     const renderGame = async () => {
         const randomGameIds = ['677bc2bfc1c842b3cf9090ef', '677bcea36a9683b7e0e060fd'];
+        const allGames = await fetchAllGames()
         const data = await fetchGameById(id);
 
+        for (let i = 0; i < 3; i++) {
+            const randomNumber = getRandomNumber(allGames.length)
+            const randomGame = allGames[randomNumber - 1]
+            setRandomGames((prevRandomGames) => [...prevRandomGames, randomGame]);
+        }
+        
         setGame(data);
         setComments(await fetchDataForGame(id, "comments"))
         setDevLogs(await fetchDataForGame(id, "devLogs"))
-
-        for (const id of randomGameIds) {
-            const randomGame = await fetchGameById(id);
-            setRandomGames((prevRandomGames) => [...prevRandomGames, randomGame]);
-        }
     };
 
     renderGame();

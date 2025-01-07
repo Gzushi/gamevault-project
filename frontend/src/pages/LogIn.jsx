@@ -2,15 +2,18 @@ import React, { useState } from 'react'
 import logo from '../assets/images/GameVault.png'
 import Footer from '../components/Footer'
 import useLogin from '../hooks/useLogin'
+import { useNavigate } from 'react-router-dom'
 
 const LogIn = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const {login, isLoading, error} = useLogin()
+    const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         await login(username, password)
+        navigate("/")
     }
 
     return (
