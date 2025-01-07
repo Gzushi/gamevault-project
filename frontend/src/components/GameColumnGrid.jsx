@@ -1,4 +1,5 @@
 import React from 'react'
+
 import windows from '../assets/images/windows.png'
 import ios from '../assets/images/ios.png'
 import ps4 from '../assets/images/ps4.png'
@@ -16,9 +17,9 @@ return (
                             className='bg-[#270E3F] p-0.5 rounded-md'
                             >
                             <img src={ game.image } alt="Game Image" className='w-[360px] h-[160px]'/>
-                            <div className='bg-[#363636] flex items-center'>
+                            <div className='bg-[#363636] flex items-center p-1'>
                                 <img src={ game.icon } alt="Game Profile" className='h-10'/>
-                                <div>
+                                <div className='pl-2'>
                                     <h1>{ game.title }</h1>
                                     <p>{ game.developer }</p>
                                 </div>

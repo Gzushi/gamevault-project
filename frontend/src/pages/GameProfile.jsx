@@ -58,12 +58,15 @@ return (
                     </button>
                 </div>
                 <div className='flex flex-col w-full'>
-                    <div className='bg-[#171717] relative flex flex-col justify-between w-100 min-h-screen gap-4 px-4 py-6 rounded-md'>
+                    <div className='bg-[#171717] relative flex flex-col justify-between w-100 min-h-screen gap-4 px-4 py-8 rounded-md'>
                         <div className='grid grid-col justify-between gap-2 p-0.5'>
                             <CommentCard />
                         </div>
-                        <div className='flex items-center px-2 py-4'>
-                            <textarea name="commentArea" id="commentArea" placeholder='Message' className='bg-[#212121] border-2 border-[#2B2B2B] w-full resize-none outline-none rounded-md'></textarea>
+                        <div className='flex items-center mb-4'>
+                            <textarea name="commentArea"
+                                id="commentArea"
+                                className='bg-[#212121] border-2 border-[#2B2B2B] w-full resize-none outline-none rounded-md'>
+                            </textarea>
                         </div>
                     </div>
                 </div>
@@ -82,7 +85,7 @@ return (
                             <p>Year Released: {game?.releaseDate}</p>
                             <p>Price: {game?.price}</p>
                             <div className='flex flex-row gap-1'>
-                                <p>Platforms: </p>
+                                <p>Platforms:</p>
                                 <img src={ windows } alt="Windows" className='h-[20px]' />
                                 <img src={ ios } alt="iOS" className='h-[20px]' />
                                 <img src={ ps4 } alt="PS4" className='h-[20px]' />

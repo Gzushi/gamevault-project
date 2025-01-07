@@ -9,12 +9,13 @@ import follow from '../assets/images/heart.svg'
 import report from '../assets/images/alert-triangle.svg'
 import thumbsup from '../assets/images/thumbs-up.svg'
 import thumbsdown from '../assets/images/thumbs-down.svg'
+import LogOut from '../assets/images/power.svg'
 
 const UserProfile = ({ games }) => {
   return (
     <DefaultLayout>
         <div className='bg-[#2B2B2B] text-[#D4D4D4] font-sans'>
-            <div className='bg-[#411769] flex flex-row items-end'>
+            <div className='bg-[#411769] flex flex-row relative items-end'>
                 <div className='p-[2%] pt-[1%] pl-[6%]'>
                     <img src={ userprofile } alt="Aether" className='bg-[#411769] p-1 w-[200px] h-[200px] rounded-[50%] translate-y-[75px]'/>
                 </div>
@@ -37,6 +38,9 @@ const UserProfile = ({ games }) => {
                         </button>
                     </div>
                 </div>
+                <button className='absolute right-[10px] top-[10px]'>
+                    <img src={ LogOut } alt="Log Out" />
+                </button>
             </div>
             <div className='flex flex-row pt-16 px-4'>
                 <div className='grid grid-col-[auto_1fr] mr-[5%] mb-4'>

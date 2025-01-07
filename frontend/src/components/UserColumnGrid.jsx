@@ -16,9 +16,9 @@ const UserColumnGrid = () => {
             className='bg-[#270E3F] p-0.5 rounded-md'
             >
             <img src={ logo } alt="templogo" className='w-[320px] h-[160px]'/>
-            <div className='bg-[#363636] flex items-center'>
+            <div className='bg-[#363636] flex items-center p-1'>
                 <img src={ profile } alt="profiletemp" className='h-10'/>
-                <div>
+                <div className='pl-2'>
                     <h1>Genshin Impact</h1>
                     <p>Hoyoverse</p>
                 </div>
