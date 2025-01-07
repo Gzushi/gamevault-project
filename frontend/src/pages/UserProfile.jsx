@@ -1,11 +1,10 @@
 import React from 'react'
-import DefaultLayout from "../layouts/defaultlayout"
-import userprofile from '../assets/images/Aether.jpg'
+import DefaultLayout from '../layouts/defaultlayout'
+import userprofile from '../assets/images/User.png'
 import follow from '../assets/images/heart.svg'
 import report from '../assets/images/alert-triangle.svg'
 import thumbsup from '../assets/images/thumbs-up.svg'
 import thumbsdown from '../assets/images/thumbs-down.svg'
-
 import logo from '../assets/images/tempgamelogo.png'
 import profile from '../assets/images/profiletemp.jpg'
 import windows from '../assets/images/windows.png'

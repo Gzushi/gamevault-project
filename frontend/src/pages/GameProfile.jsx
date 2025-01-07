@@ -1,12 +1,11 @@
 import React from 'react'
 import Grid from "../components/OneColumnGrid";
 import logo from '../assets/images/tempgamelogo.png'
-import DefaultLayout from "../layouts/defaultlayout"
-import addlist from "../assets/images/plus-circle.svg"
+import DefaultLayout from '../layouts/defaultlayout'
+import addlist from '../assets/images/plus-circle.svg'
 import report from '../assets/images/alert-triangle.svg'
 import thumbsup from '../assets/images/thumbs-up.svg'
 import thumbsdown from '../assets/images/thumbs-down.svg'
-
 import profile from '../assets/images/profiletemp.jpg'
 import windows from '../assets/images/windows.png'
 import ios from '../assets/images/ios.png'
