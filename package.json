@@ -20,6 +20,7 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "framer-motion": "^11.15.0",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.3",
     "validator": "^13.12.0"
   },
