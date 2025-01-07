@@ -1,17 +1,16 @@
 import React, { useEffect } from 'react'
 import DefaultLayout from "../layouts/defaultlayout";
-
 import GameCard from './GameCard'
+import { useGamesStore } from '../store/games';
 
 const Main = () => {
-const { fetchGames, games } = useGamesStore()
+    const { fetchGames, games } = useGamesStore()
 
-useEffect(() => {
-    fetchGames()
-}, [fetchGames])
+    useEffect(() => {
+        fetchGames()
+    }, [fetchGames])
 
-return (
-    <DefaultLayout>
+    return (
         <main className='flex flex-col h-full text-[#D4D4D4]'>
             <div className='bg-[#2B2B2B] px-8 py-12'>
                 <div className='bg-[#171717] w-full flex flex-col py-5 rounded-t-md'>
@@ -26,7 +25,6 @@ return (
                 </div>
             </div>
         </main>
-    </DefaultLayout>
     )
 }
 

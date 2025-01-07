@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import DefaultLayout from '../layouts/defaultlayout'
 import CommentCard from '../components/CommentCard'
 import UserColumnGrid from '../components/UserColumnGrid'
@@ -11,7 +11,19 @@ import thumbsup from '../assets/images/thumbs-up.svg'
 import thumbsdown from '../assets/images/thumbs-down.svg'
 import LogOut from '../assets/images/power.svg'
 
+import { useLogout } from "../hooks/useLogout"
+import { useAuthContext } from '../hooks/useAuthContext'
+import { useNavigate } from 'react-router-dom'
+
 const UserProfile = ({ games }) => {
+    const { logout } = useLogout()
+    const { user } = useAuthContext()
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        logout()
+        navigate("/login")
+    }
     return (
         <DefaultLayout>
             <div className='bg-[#2B2B2B] text-[#D4D4D4] font-sans'>
@@ -21,7 +33,9 @@ const UserProfile = ({ games }) => {
                     </div>
                     <div className='bg-[#4E1C7D] text-xl flex flex-col px-2 my-1 rounded-sm'>
                         <div>
-                            <h1 className='text-2xl font-medium pb-[5%]'>Aether</h1>
+
+                            <h1 className='text-2xl font-medium pb-[5%]'>{user && user.username}</h1>
+
                         </div>
                         <div className='flex flex-row-8 pl-[1%] pb-[5%] gap-2'>
                             <button>
@@ -38,7 +52,9 @@ const UserProfile = ({ games }) => {
                             </button>
                         </div>
                     </div>
-                    <button className='absolute right-[10px] top-[10px]'>
+
+                    <button onClick={handleLogout} className='absolute right-[10px] top-[10px]'>
+
                         <img src={ LogOut } alt="Log Out" />
                     </button>
                 </div>

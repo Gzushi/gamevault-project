@@ -1,50 +1,32 @@
 import React, { useState } from 'react'
-import { useCriticStore } from '../store/critic'
 import logo from '../assets/images/GameVault.png'
 import Footer from "../components/Footer";
+import useSignUp from "../hooks/useSignup"
 
 const createCritic = () => {
-  const [newCritic, setNewCritic] = useState({
-    username: '',
-    password: '',
-    email: '',
-  })
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [email, setEmail] = useState("")
+    const {signup, isLoading, error} = useSignUp()
 
-  const { createCritic } = useCriticStore()
-
-  const handleAddCritic = async () => {
-    const { success, message } = await createCritic(newCritic)
-    if (!success) {
-      console.log({
-        title: 'Error',
-        description: 'message',
-        status: 'error',
-      })
-    } else {
-      console.log({
-        title: 'Success',
-        description: 'message',
-        status: 'success',
-      })
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        
+        await signup(username, password, email)
     }
-    setNewCritic({ username: '', password: '', email: '' })
-  }
 
   return (
     <div className='bg-[#2E2E2E] text-[#D4D4D4] font-sans h-screen flex flex-col items-center pt-20'>
         <div>
             <img src={ logo } alt='GameVault' className='h-[120px]'/>
         </div>
-        <div className='flex flex-col gap-1 justify-center'>
+        <form onSubmit={handleSubmit} className='flex flex-col gap-1 justify-center'>
             <div>
                 <input
                 type='text'
                 placeholder='Username'
                 className='bg-[#2B2B2B] flex p-1 pl-4 pr-20 border-2 border-[#363636] outline-none rounded-md'
-                value={newCritic.username}
-                onChange={(e) =>
-                    setNewCritic({ ...newCritic, username: e.target.value })
-                }
+                onChange={(e) => setUsername(e.target.value)}
                 />
             </div>
             <div>
@@ -52,10 +34,7 @@ const createCritic = () => {
                 type='password'
                 placeholder='Password'
                 className='bg-[#2B2B2B] flex p-1 pl-4 pr-20 border-2 border-[#363636] outline-none rounded-md'
-                value={newCritic.password}
-                onChange={(e) =>
-                    setNewCritic({ ...newCritic, password: e.target.value })
-                }
+                onChange={(e) => setPassword(e.target.value)}
                 />
             </div>
             <div>
@@ -63,21 +42,19 @@ const createCritic = () => {
                 type='text'
                 placeholder='Email'
                 className='bg-[#2B2B2B] flex p-1 pl-4 pr-20 border-2 border-[#363636] outline-none rounded-md'
-                value={newCritic.email}
-                onChange={(e) =>
-                    setNewCritic({ ...newCritic, email: e.target.value })
-                }
+                onChange={(e) => setEmail(e.target.value)}
                 />
             </div>
             <div>
-                <button
-                className='bg-[#842fd1] flex p-1 px-[113px] font-medium text-center border-2 border-[#5b1a87] outline-none rounded-md'
-                onClick={handleAddCritic}
+                <button type='submit'
+                    disabled={isLoading}
+                    className='bg-[#842fd1] flex p-1 px-[113px] font-medium text-center border-2 border-[#5b1a87] outline-none rounded-md'
                 >
                 Submit
                 </button>
+                {error && <div>{error}</div>}
             </div>
-        </div>
+        </form>
         <div className='flex flex-col gap-1 items-center'>
             <div className='flex flex-row py-5'>
                 <p>__________________</p>

@@ -27,6 +27,8 @@ export const getGamesById = async (req, res) => {
     }
 };
 
+// add like, push userID
+
 export const createGames = async (req, res) => {
     const games = req.body; //user send data
     if (

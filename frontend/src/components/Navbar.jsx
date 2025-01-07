@@ -10,7 +10,7 @@ const Navbar = () => {
         <nav className='bg-[#212121] text-[#D4D4D4] font-sans p-[1.5%] w-full flex justify-between'>
             <div className='flex justify-between items-center gap-8'>
                 <div
-                    onClick={() => navigate('../app')}
+                    onClick={() => navigate('../')}
                     >
                     <img src={ logo } alt='GameVault' className='max-h-[8vh]'/>
                 </div>
