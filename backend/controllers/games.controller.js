@@ -11,6 +11,22 @@ export const getGames = async (req, res) => {
   }
 }
 
+export const getGamesById = async (req, res) => {
+  const { id } = req.params
+  try {
+    const games = await Games.findById(id)
+    if (!games) {
+      return res
+        .status(404)
+        .json({ success: false, message: 'Product Not Found' })
+    }
+    res.status(200).json({ success: true, data: games })
+  } catch (error) {
+    console.log('error in fetching product: ', error.message)
+    res.status(500).json({ success: false, message: 'Server Error' })
+  }
+}
+
 export const createGames = async (req, res) => {
   const games = req.body //user send data
   if (

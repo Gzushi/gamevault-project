@@ -36,6 +36,10 @@ const router = createBrowserRouter([
     element: <GameProfile />,
   },
   {
+    path: '/gameprofile/:id',
+    element: <GameProfile />,
+  },
+  {
     path: '/userprofile',
     element: <UserProfile />,
   },
@@ -62,7 +66,7 @@ const router = createBrowserRouter([
 ])
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>
+//   <StrictMode>
+//   </StrictMode>
 )
