@@ -15,10 +15,10 @@ const Navbar = () => {
                     <input className='bg-[#212121] flex w-full max-w-[12rem] px-3 py-0.5 border-2 border-[#2B2B2B] outline-none rounded-md' type="text" placeholder='Search'/>
                 </div>
             </div>
-            <div className='flex gap-4 items-center'>
-                <a href="" className='flex p-1.5'>Become a Dev!</a>
+            <div className='flex flex-row gap-4 items-center'>
+                <a href="" className='p-1.5'>Become a Dev!</a>
                 <a href="http://localhost:5173/userprofile">
-                    <img src={ profile } alt="Aether" className='h-10'/>
+                    <img src={ profile } alt="Aether" className='bg-[#270E3F] h-10 p-0.5 rounded-[50%]'/>
                 </a>
             </div>
         </nav>

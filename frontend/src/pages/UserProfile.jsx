@@ -13,7 +13,7 @@ import ios from '../assets/images/ios.png'
 import ps4 from '../assets/images/ps4.png'
 import android from '../assets/images/android.png'
 
-const UserProfile = () => {
+const UserProfile = ({ games }) => {
   return (
     <DefaultLayout>
         <div className='bg-[#2B2B2B] text-[#D4D4D4] font-sans'>
@@ -42,7 +42,7 @@ const UserProfile = () => {
                 </div>
             </div>
             <div className='flex flex-row pt-[5%] pl-[1.5%]'>
-                <div className='grid grid-col-[auto_1fr] pr-[5%]'>
+                <div className='grid grid-col-[auto_1fr] mr-[5%] mb-8'>
                     <div className='bg-[#212121] flex flex-row gap-5 py-2 px-4 mb-6 w-min rounded-2xl'>
                         <div className='flex flex-col items-center'>
                             <p>##</p>
@@ -61,10 +61,10 @@ const UserProfile = () => {
                             <p>Dislikes</p>
                         </div>
                     </div>
-                    <div className='bg-[#171717] flex flex-row justify-center pt-5'>
+                    <div className='bg-[#171717] flex flex-row justify-center pt-5 rounded-t-md'>
                         <p className='px-2 font-bold text-lg'>Personally Liked</p>
                     </div>
-                    <div className='bg-[#171717] w-100 h-full'>
+                    <div className='bg-[#171717] w-100 h-full rounded-b-md'>
                         <div className='flex justify-items-center content-center py-3 my-2 mx-5'>
                             <div className='bg-[#363636] flex flex-col w-100 gap-4'>
                                 <a href="http://localhost:5173/gameprofile">
