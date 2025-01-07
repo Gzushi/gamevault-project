@@ -51,18 +51,18 @@ useEffect(() => {
 return (
     <DefaultLayout>
         {showComments && (
-            <div className='bg-[#0D0D0D] fixed w-full max-w-[800px] left-[50%] translate-x-[-50%] min-h-screen bg-blue-100'>
+            <div className='bg-[#0D0D0D] fixed w-full max-w-[800px] left-[50%] translate-x-[-50%] min-h-screen'>
                 <div className='bg-[#0D0D0D] flex justify-end p-1'>
                     <button onClick={() => setShowComments(false)}>
                         <img src={ exit } alt="Exit" />
                     </button>
                 </div>
                 <div className='flex flex-col w-full'>
-                    <div className='bg-[#171717] flex flex-col w-100 gap-4 px-4 py-6 rounded-md'>
+                    <div className='bg-[#171717] relative flex flex-col justify-between w-100 min-h-screen gap-4 px-4 py-6 rounded-md'>
                         <div className='grid grid-col justify-between gap-2 p-0.5'>
                             <CommentCard />
                         </div>
-                        <div className='flex items-center px-2 py-4 sticky bottom-0'>
+                        <div className='flex items-center px-2 py-4'>
                             <textarea name="commentArea" id="commentArea" placeholder='Message' className='bg-[#212121] border-2 border-[#2B2B2B] w-full resize-none outline-none rounded-md'></textarea>
                         </div>
                     </div>
