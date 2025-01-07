@@ -1,6 +1,4 @@
 import React from 'react'
-import profile from '../assets/images/profiletemp.jpg'
-import logo from '../assets/images/tempgamelogo.png'
 import windows from '../assets/images/windows.png'
 import ios from '../assets/images/ios.png'
 import ps4 from '../assets/images/ps4.png'

@@ -21,17 +21,22 @@ import android from '../assets/images/android.png'
 
 
 const GameProfile = () => {
-const { fetchGameById } = useGamesStore()
+const { fetchGameById, fetchDataForGame } = useGamesStore()
 const [ game, setGame ] = useState()
 const [ randomGames, setRandomGames ] = useState([])
+const [ comments, setComments ] = useState([])
+const [ showComments, setShowComments ] = useState(false)
+const [ devLogs, setDevLogs ] = useState([])
 const { id } = useParams()
 
 useEffect(() => {
     const renderGame = async () => {
-        const data = await fetchGameById(id);
-        setGame(data);
-
         const randomGameIds = ['677bc2bfc1c842b3cf9090ef', '677bcea36a9683b7e0e060fd'];
+        const data = await fetchGameById(id);
+
+        setGame(data);
+        setComments(await fetchDataForGame(id, "comments"))
+        setDevLogs(await fetchDataForGame(id, "devLogs"))
 
         for (const id of randomGameIds) {
             const randomGame = await fetchGameById(id);
@@ -39,23 +44,29 @@ useEffect(() => {
         }
     };
 
+
     renderGame();
 }, []);
 
 return (
-    <DefaultLayout> 
+    <DefaultLayout>
+        {showComments && (
+            <div className='fixed w-full max-w-[800px] left-[50%] translate-x-[-50%] min-h-screen bg-blue-100'>
+                <button onClick={() => setShowComments(false)}>X</button>
+            </div>
+        )}
         <div className='bg-[#2B2B2B] text-[#D4D4D4] font-sans px-4 py-6'>
             <div className='grid grid-cols-[60%_1fr] pb-4'>
-                <img src={ logo } alt="tempgamelogo" className='bg-[#270E3F] p-0.5 w-full rounded-sm'/>
+                <img src={ game?.image } alt="tempgamelogo" className='bg-[#270E3F] p-0.5 w-full rounded-sm'/>
                 <div className='flex flex-col justify-between items-center w-full h-full mx-2'>
                     <div className='bg-[#212121] flex flex-col gap-3 min-h-60 rounded-md px-4 py-2'>
                         <div className='flex flex-row gap-5 min-h-14'>
-                            <h1 className='text-4xl'>Genshin Impact</h1>
+                            <h1 className='text-4xl'>{game?.title}</h1>
                         </div>
-                        <p>Description: </p>
+                        <p>Description: {game?.desc}</p>
                         <div>
-                            <p>Year Released: </p>
-                            <p>Price: </p>
+                            <p>Year Released: {game?.releaseDate}</p>
+                            <p>Price: {game?.price}</p>
                             <div className='flex flex-row gap-1'>
                                 <p>Platforms: </p>
                                 <img src={ windows } alt="Windows" className='h-[20px]' />
@@ -69,12 +80,9 @@ return (
                                 Genres of this Game:
                             </div>
                             <div className='flex flex-wrap gap-1 mb-2'>
-                                <div className='bg-[#363636] w-min px-1 py-0.5 rounded-md'>Action</div>   
-                                <div className='bg-[#363636] w-min px-1 py-0.5 rounded-md'>Adventure</div>
-                                <div className='bg-[#363636] w-min px-1 py-0.5 rounded-md'>Fantasy</div>
-                                <div className='bg-[#363636] w-min px-1 py-0.5 rounded-md'>Multiplayer</div>
-                                <div className='bg-[#363636] w-min px-1 py-0.5 rounded-md'>RPG</div>
-                                <div className='bg-[#363636] w-min px-1 py-0.5 rounded-md'>Singleplayer</div>
+                                {game?.genre.map((g, i) => (
+                                    <div className='bg-[#363636] w-min px-1 py-0.5 rounded-md' key={i}>{g}</div>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -95,7 +103,7 @@ return (
                             </button>
                         </div>
                         <div className='self-center'>
-                            <button className='bg-[#270E3F] p-[1.2%] rounded-md'>
+                            <button onClick={() => setShowComments(true)} className='bg-[#270E3F] p-[1.2%] rounded-md'>
                                 <h1 className='bg-[#2B2B2B] p-1 flex-fit rounded-md'>Comments</h1>
                             </button>
                         </div>
