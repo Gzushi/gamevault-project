@@ -1,5 +1,4 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 
 import logo from '../assets/images/tempgamelogo.png'
 import profile from '../assets/images/profiletemp.jpg'
@@ -8,10 +7,9 @@ import ios from '../assets/images/ios.png'
 import ps4 from '../assets/images/ps4.png'
 import android from '../assets/images/android.png'
 
-const DevColumnGrid = () => {
-    const navigate = useNavigate()
-    return (
-        <div
+const MostLikes = () => {
+  return (
+    <div
             onClick={() => navigate('../gameprofile')}
             className='bg-[#270E3F] p-0.5 rounded-md'
             >
@@ -35,7 +33,7 @@ const DevColumnGrid = () => {
                 </div>
             </div>
         </div>
-    )
+  )
 }
 
-export default DevColumnGrid
+export default MostLikes

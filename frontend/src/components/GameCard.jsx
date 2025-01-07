@@ -28,7 +28,7 @@ return (
                     <p>{game.developer}</p>
                 </div>
                 </div>
-                <div className='bg-[#363636] flex justify-between'>
+                <div className='bg-[#2B2B2B] flex justify-between'>
                     <p className='pl-1 pb-1'>${game.price}</p>
                     <div className='flex gap-1 pt-1 pr-1'>
                         <img src={windows} alt='Windows' className='h-[20px]' />
