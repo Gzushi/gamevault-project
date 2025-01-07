@@ -1,22 +1,25 @@
-import express from 'express'
+import express from "express";
 import {
-  getGames,
-  createGames,
-  updateGames,
-  deleteGames,
-  getGamesById,
-} from '../controllers/games.controller.js'
+    getGames,
+    createGames,
+    updateGames,
+    deleteGames,
+    getGamesById,
+    getCommentsForGame,
+} from "../controllers/games.controller.js";
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/', getGames)
+router.get("/", getGames);
 
-router.post('/', createGames)
+router.post("/", createGames);
 
-router.put('/:id', updateGames)
+router.get("/:id/comments", getCommentsForGame);
 
-router.delete('/:id', deleteGames)
+router.put("/:id", updateGames);
 
-router.get('/:id', getGamesById)
+router.delete("/:id", deleteGames);
 
-export default router
+router.get("/:id", getGamesById);
+
+export default router;
