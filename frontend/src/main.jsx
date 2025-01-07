@@ -13,10 +13,12 @@ import LogInDev from './pages/LogInDev'
 import LogInAdmin from './pages/LogInAdmin'
 import SignUpDev from './pages/SignUpDev'
 import SignUpAdmin from './pages/SignUpAdmin'
+import AdminProfile from './pages/AdminProfile'
+import Dashboard from './pages/Dashboard'
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/app',
     element: <App />,
   },
   {
@@ -60,8 +62,16 @@ const router = createBrowserRouter([
     element: <SignUpDev />,
   },
   {
-    path: '/signupAdmin',
+    path: '/signupadmin',
     element: <SignUpAdmin />,
+  },
+  {
+    path: '/adminprofile',
+    element: <AdminProfile />,
+  },
+  {
+    path: '/dashboard',
+    element: <Dashboard />,
   },
 ])
 
