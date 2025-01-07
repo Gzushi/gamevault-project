@@ -4,7 +4,6 @@ import windows from '../assets/images/windows.png'
 import ios from '../assets/images/ios.png'
 import ps4 from '../assets/images/ps4.png'
 import android from '../assets/images/android.png'
-import { div } from 'framer-motion/client'
 
 const GameCard = ({ game }) => {
 const navigate = useNavigate()

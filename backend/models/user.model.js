@@ -22,6 +22,18 @@ const UserSchema = new mongoose.Schema(
             enum: ["user", "dev", "admin"],
             default: "user",
         },
+        likes: {
+            type: Number,
+            default: 0,
+        },
+        dislikes: {
+            type: Number,
+            default: 0,
+        },
+        followers: {
+            type: Number,
+            default: 0,
+        },
     },
     {
         timestamps: true,

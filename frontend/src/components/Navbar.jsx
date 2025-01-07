@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import logo from '../assets/images/GameVault.png'
-import profile from '../assets/images/Aether.jpg'
+import profile from '../assets/images/User.png'
 
 const Navbar = () => {
     const navigate = useNavigate()

@@ -1,5 +1,5 @@
 import React from 'react'
-import userprofile from '../assets/images/Aether.jpg'
+import userprofile from '../assets/images/User.png'
 import report from '../assets/images/alert-triangle.svg'
 
 const CommentCard = () => {

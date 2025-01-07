@@ -13,7 +13,8 @@ return (
             {
                 games.map(game =>(
                         <div
-                            onClick={() => navigate('../gameprofile')}
+                            key={game._id}
+                            onClick={() => navigate(`../gameprofile'${game._id}`)}
                             className='bg-[#270E3F] p-0.5 rounded-md'
                             >
                             <img src={ game.image } alt="Game Image" className='w-[360px] h-[160px]'/>
@@ -26,7 +27,7 @@ return (
                             </div>
                             <div className='bg-[#2B2B2B] flex justify-between'>
                                 <div>
-                                    <p className='pl-1 pb-1'>Free</p>
+                                    <p className='pl-1 pb-1'>{game.price}</p>
                                 </div>
                                 <div className='flex gap-1 pt-1 pr-1'>
                                     <img src={ windows } alt="Windows" className='h-[20px]' />

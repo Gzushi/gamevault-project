@@ -4,7 +4,7 @@ import CommentCard from '../components/CommentCard'
 import UserColumnGrid from '../components/UserColumnGrid'
 import UserOrDevMetrics from '../components/UserOrDevMetrics'
 
-import userprofile from '../assets/images/Aether.jpg'
+import userprofile from '../assets/images/User.png'
 import follow from '../assets/images/heart.svg'
 import report from '../assets/images/alert-triangle.svg'
 import thumbsup from '../assets/images/thumbs-up.svg'
