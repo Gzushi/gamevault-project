@@ -32,7 +32,7 @@ const LogIn = () => {
                         type='password'
                         placeholder='Password'
                         className='bg-[#2B2B2B] flex p-1 pl-4 pr-20 border-2 border-[#363636] outline-none rounded-md'
-                        onChange={(e) => setUsername(e.target.value)}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                     </div>
                     <div>
