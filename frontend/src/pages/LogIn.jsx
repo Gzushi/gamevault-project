@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import logo from '../assets/images/GameVault.png'
 import Footer from '../components/Footer'
+import useLogin from '../hooks/useLogin'
 
 const LogIn = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const {login, isLoading, error} = useLogin()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log("HI LOGIN")
+        await login(username, password)
     }
 
     return (
@@ -35,11 +37,12 @@ const LogIn = () => {
                     </div>
                     <div>
                     <button type='submit'
+                        disabled={isLoading}
                         className='bg-[#842fd1] flex p-1 px-[113px] font-medium text-center border-2 border-[#5b1a87] outline-none rounded-md'
                     >
                         Submit
                     </button>
-                    <p id='auth'></p>
+                    {error && <div>{error}</div>}
                 </div>
             </form>
             <div className='flex flex-col gap-1 items-center'>
