@@ -2,9 +2,9 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import logo from '../assets/images/GameVault.png'
-import NewUploads from '../components/NewUploads'
-import MostLikes from '../components/MostLikes'
-import DashNotif from '../components/DashNotif'
+import ReportedContent from '../components/ReportedContent'
+import ReportedUsers from '../components/ReportedUsers'
+import ReportedComments from '../components/ReportedComments'
 
 const Dashboard = () => {
     const navigate = useNavigate()
@@ -22,35 +22,14 @@ const Dashboard = () => {
                             <button className='font-medium text-lg text-left'>
                                 <h1>Dashboard</h1>
                             </button>
-                            <button className='font-medium text-lg text-left'>
-                                <h1>User Management</h1>
-                            </button>
-                            <button className='font-medium text-lg text-left'>
-                                <h1>Content Mod</h1>
-                            </button>
-                            <button className='font-medium text-lg text-left'>
-                                <h1>Comment Mod</h1>
-                            </button>
-                            <button className='font-medium text-lg text-left'>
-                                <h1>Web Issue</h1>
-                            </button>
-                            <button className='font-medium text-lg text-left'>
-                                <h1>Feedback</h1>
-                            </button>
-                            <button className='font-medium text-lg text-left'>
-                                <h1>Database</h1>
-                            </button>
-                            <button className='font-medium text-lg text-left'>
-                                <h1>Website</h1>
-                            </button>
-                        </div>
-                        <div className='bg-[#212121] flex flex-col gap-4 px-6 py-4 mt-4 w-full rounded'>
-                            <h1 className='font-medium text-lg text-left'>
-                                Dev Users: ##
-                            </h1>
-                            <h1 className='font-medium text-lg text-left'>
-                                Users: ##
-                            </h1>
+                            <div className='flex flex-col gap-2'>
+                                <h1 className='font-medium text-lg text-left'>
+                                    Dev Users: ##
+                                </h1>
+                                <h1 className='font-medium text-lg text-left'>
+                                    Users: ##
+                                </h1>
+                            </div>
                         </div>
                     </div>
                     <div className='bg-[#2B2B2B] flex flex-col w-full px-6 py-8 rounded-md'>
@@ -59,33 +38,31 @@ const Dashboard = () => {
                         </div>
                         <div className='flex flex-col gap-6'>
                             <div>
-                                <p className='font-medium text-lg text-left'>New Uploads!</p>
+                                <p className='font-medium text-lg text-left'>Reported Content</p>
                             </div>
                             <div className='bg-[#171717] p-4 flex flex-fit w-min items-center rounded-md'>
                                 <div className='flex flex-row w-max gap-4'>
-                                    <NewUploads />
-                                    <NewUploads />
-                                    <NewUploads />
+                                    <ReportedContent />
+                                    <ReportedContent />
+                                    <ReportedContent />
                                 </div>
                             </div>
                             <div>
-                                <p className='font-medium text-lg text-left mt-2'>Most Likes!</p>
+                                <p className='font-medium text-lg text-left mt-2'>Reported Users</p>
                             </div>
-                            <div className='bg-[#171717] p-4 flex flex-fit w-min items-center rounded-md'>
-                                <div className='flex flex-row w-max gap-4'>
-                                    <MostLikes />
-                                    <MostLikes />
-                                    <MostLikes />
-                                </div>
+                            <div className='bg-[#171717] p-4 gap-4 font-sans flex w-fit gap-2 rounded-md'>
+                                <ReportedUsers />
+                                <ReportedUsers />
+                                <ReportedUsers />
                             </div>
                             <div className='bg-[#171717] p-4 flex flex-col gap-4 w-[80%] rounded-md'>
                                 <div>
-                                    <p className='font-bold text-lg text-left mt-2 pl-2'>Reviews!</p>
+                                    <p className='font-bold text-lg text-left mt-2 pl-2'>Reported Comments</p>
                                 </div>
                                 <div className='flex flex-col gap-2'>
-                                    <DashNotif />
-                                    <DashNotif />
-                                    <DashNotif />
+                                    <ReportedComments />
+                                    <ReportedComments />
+                                    <ReportedComments />
                                 </div>
                             </div>
                         </div>
