@@ -13,6 +13,7 @@ import LogInDev from './pages/LogInDev'
 import LogInAdmin from './pages/LogInAdmin'
 import SignUpDev from './pages/SignUpDev'
 import SignUpAdmin from './pages/SignUpAdmin'
+import { AuthContextProvider } from './context/AuthContext'
 
 const router = createBrowserRouter([
   {
@@ -66,7 +67,9 @@ const router = createBrowserRouter([
 ])
 
 createRoot(document.getElementById('root')).render(
-    <RouterProvider router={router} />
-//   <StrictMode>
-//   </StrictMode>
+    <StrictMode>
+        <AuthContextProvider>
+            <RouterProvider router={router} />
+        </AuthContextProvider>
+    </StrictMode>
 )
