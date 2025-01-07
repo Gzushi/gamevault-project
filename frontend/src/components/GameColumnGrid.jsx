@@ -7,16 +7,18 @@ import ps4 from '../assets/images/ps4.png'
 import android from '../assets/images/android.png'
 
 const OneColumnGrid = ({ games }) => {
-    console.log(games)
 return (
     <div className='bg-[#171717] w-100 h-full rounded-b-md'>
         <div className='flex justify-items-center content-center py-3 mb-2 mx-5'>
             <div className='flex flex-col w-100 gap-4'>
             {
                 games.map(game =>(
-                        <a href="http://localhost:5173/gameprofile" className='bg-[#270E3F] p-0.5 rounded-md'>
+                        <div
+                            onClick={() => navigate('../gameprofile')}
+                            className='bg-[#270E3F] p-0.5 rounded-md'
+                            >
                             <img src={ game.image } alt="Game Image" className='w-[360px] h-[160px]'/>
-                            <div className='bg-[#363636] flex items-center p- gap-2'>
+                            <div className='bg-[#363636] flex items-center'>
                                 <img src={ game.icon } alt="Game Profile" className='h-10'/>
                                 <div>
                                     <h1>{ game.title }</h1>
@@ -34,7 +36,7 @@ return (
                                     <img src={ android } alt="Android" className='h-[20px]' />
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     ))
                 }
             </div>

@@ -6,7 +6,7 @@ import { useState } from 'react'
 import logo from '../assets/images/tempgamelogo.png'
 import DefaultLayout from '../layouts/defaultlayout'
 import Metrics from '../components/Metrics'
-import OneColumnGrid from '../components/OneColumnGrid'
+import GameColumnGrid from '../components/GameColumnGrid'
 import InfoCard from '../components/InfoCard'
 
 import addlist from '../assets/images/plus-circle.svg'
@@ -78,7 +78,7 @@ return (
                             </div>
                         </div>
                     </div>
-                    <div className='bg-[#212121] flex flex-row gap-5 w-min py-2 px-[3%] rounded-2xl'>
+                    <div className='bg-[#212121] flex flex-row flex-fit items-center gap-5 w-min py-2 px-[3%] rounded-2xl'>
                         <Metrics />
                         <div className='flex gap-2'> 
                             <button className='min-w-6'>
@@ -95,19 +95,19 @@ return (
                             </button>
                         </div>
                         <div className='self-center'>
-                            <button>
+                            <button className='bg-[#270E3F] p-[1.2%] rounded-md'>
                                 <h1 className='bg-[#2B2B2B] p-1 flex-fit rounded-md'>Comments</h1>
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className='flex flex-row'>
+            <div className='flex flex-row pt-[5%] pl-[1.5%]'>
                 <div className='grid grid-col-[auto_1fr] pr-[5%]'>
-                    <div className='bg-[#171717] flex flex-row justify-center pt-5 rounded-t-md'>
+                    <div className='bg-[#171717] flex flex-row flex-fit items-center justify-center py-5  rounded-t-md'>
                         <p className='px-2 font-bold text-lg'>Other Games!</p>
                     </div>
-                    <OneColumnGrid games = { randomGames } />
+                    <GameColumnGrid games = { randomGames } />
                 </div>
                 <div className='w-full pl-10%'>
                     <div className='bg-[#171717] grid grid-cols-[repeat(3,1fr)] p-4 gap-2 rounded-md'>
@@ -117,7 +117,7 @@ return (
                     </div>
                     <div className='bg-[#171717] flex flex-col w-100 gap-4 mt-4 rounded-md'>
                         <div className='flex flex-col w-100 gap-4 px-4 py-6 rounded-sm'>
-                        <p className='font-medium text-2xl pl-2'>Dev Notes!</p>
+                            <p className='font-medium text-2xl pl-2'>Dev Notes!</p>
                             <div className='flex flex-col justify-between gap-2 p-0.5'>
                                 <InfoCard />
                                 <InfoCard />
