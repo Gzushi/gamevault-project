@@ -3,7 +3,7 @@ import userprofile from '../assets/images/Aether.jpg'
 
 const CommentCard = () => {
 return (
-    <div className='bg-[#212121] grid grid-col justify-between gap-2 p-0.5 rounded-md'>
+    <div className='bg-[#212121] text-[#D4D4D4] font-sans grid grid-col justify-between gap-2 p-0.5 rounded-md'>
         <div className='bg-[#2B2B2B] p-4 rounded-md flex flex-row gap-4'>
             <img src={ userprofile } alt="Aether" className='bg-[#411769] w-12 h-12 rounded-[50%]'/>
             <div className='flex flex-col'>

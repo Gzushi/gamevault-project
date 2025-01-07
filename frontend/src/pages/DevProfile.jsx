@@ -38,7 +38,7 @@ const DevProfile = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex flex-row pt-[5%] pl-[1.5%]'>
+            <div className='flex flex-row pt-16 px-4'>
                 <div className='grid grid-col-[auto_1fr] mr-[5%] mb-4'>
                     <div className='flex flex-row flex-fit items-center w-min rounded-2xl'>
                         <UserOrDevMetrics />

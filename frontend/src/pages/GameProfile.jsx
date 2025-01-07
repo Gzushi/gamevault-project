@@ -8,6 +8,7 @@ import DefaultLayout from '../layouts/defaultlayout'
 import Metrics from '../components/Metrics'
 import GameColumnGrid from '../components/GameColumnGrid'
 import InfoCard from '../components/InfoCard'
+import CommentCard from '../components/CommentCard'
 
 import addlist from '../assets/images/plus-circle.svg'
 import report from '../assets/images/alert-triangle.svg'
@@ -18,7 +19,7 @@ import windows from '../assets/images/windows.png'
 import ios from '../assets/images/ios.png'
 import ps4 from '../assets/images/ps4.png'
 import android from '../assets/images/android.png'
-
+import exit from '../assets/images/x.svg'
 
 const GameProfile = () => {
 const { fetchGameById, fetchDataForGame } = useGamesStore()
@@ -44,15 +45,28 @@ useEffect(() => {
         }
     };
 
-
     renderGame();
 }, []);
 
 return (
     <DefaultLayout>
         {showComments && (
-            <div className='fixed w-full max-w-[800px] left-[50%] translate-x-[-50%] min-h-screen bg-blue-100'>
-                <button onClick={() => setShowComments(false)}>X</button>
+            <div className='bg-[#0D0D0D] fixed w-full max-w-[800px] left-[50%] translate-x-[-50%] min-h-screen bg-blue-100'>
+                <div className='bg-[#0D0D0D] flex justify-end p-1'>
+                    <button onClick={() => setShowComments(false)}>
+                        <img src={ exit } alt="Exit" />
+                    </button>
+                </div>
+                <div className='flex flex-col w-full'>
+                    <div className='bg-[#171717] flex flex-col w-100 gap-4 px-4 py-6 rounded-md'>
+                        <div className='grid grid-col justify-between gap-2 p-0.5'>
+                            <CommentCard />
+                        </div>
+                        <div className='flex items-center px-2 py-4 sticky bottom-0'>
+                            <textarea name="commentArea" id="commentArea" placeholder='Message' className='bg-[#212121] border-2 border-[#2B2B2B] w-full resize-none outline-none rounded-md'></textarea>
+                        </div>
+                    </div>
+                </div>
             </div>
         )}
         <div className='bg-[#2B2B2B] text-[#D4D4D4] font-sans px-4 py-6'>
@@ -110,7 +124,7 @@ return (
                     </div>
                 </div>
             </div>
-            <div className='flex flex-row pt-[5%] pl-[1.5%]'>
+            <div className='flex flex-row pt-3'>
                 <div className='grid grid-col-[auto_1fr] pr-[5%]'>
                     <div className='bg-[#171717] flex flex-row flex-fit items-center justify-center py-5  rounded-t-md'>
                         <p className='px-2 font-bold text-lg'>Other Games!</p>
