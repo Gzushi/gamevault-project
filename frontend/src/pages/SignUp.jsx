@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
 import logo from '../assets/images/GameVault.png'
 import Footer from "../components/Footer";
+import useSignUp from "../hooks/useSignup"
 
 const createCritic = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
+    const {signup, isLoading, error} = useSignUp()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log("HI SIGNUP")
+        
+        await signup(username, password, email)
     }
 
   return (
@@ -44,10 +47,12 @@ const createCritic = () => {
             </div>
             <div>
                 <button type='submit'
-                className='bg-[#842fd1] flex p-1 px-[113px] font-medium text-center border-2 border-[#5b1a87] outline-none rounded-md'
+                    disabled={isLoading}
+                    className='bg-[#842fd1] flex p-1 px-[113px] font-medium text-center border-2 border-[#5b1a87] outline-none rounded-md'
                 >
                 Submit
                 </button>
+                {error && <div>{error}</div>}
             </div>
         </form>
         <div className='flex flex-col gap-1 items-center'>
