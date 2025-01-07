@@ -1,7 +1,14 @@
 import React, { useEffect } from 'react'
+import { useGamesStore } from '../store/games'
+import { useParams } from 'react-router-dom'
+import { useState } from 'react'
+
 import logo from '../assets/images/tempgamelogo.png'
 import DefaultLayout from '../layouts/defaultlayout'
+import Metrics from '../components/Metrics'
 import OneColumnGrid from '../components/OneColumnGrid'
+import InfoCard from '../components/InfoCard'
+
 import addlist from '../assets/images/plus-circle.svg'
 import report from '../assets/images/alert-triangle.svg'
 import thumbsup from '../assets/images/thumbs-up.svg'
@@ -11,9 +18,7 @@ import windows from '../assets/images/windows.png'
 import ios from '../assets/images/ios.png'
 import ps4 from '../assets/images/ps4.png'
 import android from '../assets/images/android.png'
-import { useGamesStore } from '../store/games'
-import { useParams } from 'react-router-dom'
-import { useState } from 'react'
+
 
 const GameProfile = () => {
 const { fetchGameById } = useGamesStore()
@@ -74,18 +79,7 @@ return (
                         </div>
                     </div>
                     <div className='bg-[#212121] flex flex-row gap-5 w-min py-2 px-[3%] rounded-2xl'>
-                        <div className='flex flex-col items-center'>
-                            <p>##</p>
-                            <p>Followers</p>
-                        </div>
-                        <div className='flex flex-col items-center'>
-                            <p>##</p>
-                            <p>Likes</p>
-                        </div>
-                        <div className='flex flex-col items-center'>
-                            <p>##</p>
-                            <p>Dislikes</p>
-                        </div>
+                        <Metrics />
                         <div className='flex gap-2'> 
                             <button className='min-w-6'>
                                 <img src={ thumbsup } alt="Thumbs Up" />
@@ -124,21 +118,9 @@ return (
                     <div className='bg-[#171717] flex flex-col w-100 gap-4 mt-4 rounded-md'>
                         <div className='flex flex-col w-100 gap-4 px-4 py-6 rounded-sm'>
                         <p className='font-medium text-2xl pl-2'>Dev Notes!</p>
-                            <div className='bg-[#270E3F] flex flex-col justify-between gap-2 p-0.5 rounded-md'>
-                                <div className='bg-[#2B2B2B] flex flex-col gap-3 p-3 rounded-md'>
-                                    <div className='bg-[#383838] font-medium text-[110%] w-fit px-2 py-1.5 rounded-md'>
-                                        <h1>*Title*</h1>
-                                    </div>
-                                    <p className='p-2'>*Description*</p>
-                                </div>
-                            </div>
-                            <div className='bg-[#270E3F] flex flex-col justify-between gap-2 p-0.5 rounded-md'>
-                                <div className='bg-[#2B2B2B] flex flex-col gap-3 p-3 rounded-md'>
-                                    <div className='bg-[#383838] font-medium text-[110%] w-fit px-2 py-1.5 rounded-md'>
-                                        <h1>*Title*</h1>
-                                    </div>
-                                    <p className='p-2'>*Description*</p>
-                                </div>
+                            <div className='flex flex-col justify-between gap-2 p-0.5'>
+                                <InfoCard />
+                                <InfoCard />
                             </div>
                         </div>
                     </div>
