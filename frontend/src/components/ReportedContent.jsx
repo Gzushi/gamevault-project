@@ -7,7 +7,7 @@ import ios from '../assets/images/ios.png'
 import ps4 from '../assets/images/ps4.png'
 import android from '../assets/images/android.png'
 
-const NewUploads = () => {
+const ReportedContent = () => {
   return (
     <div
         onClick={() => navigate('../gameprofile')}
@@ -36,4 +36,4 @@ const NewUploads = () => {
   )
 }
 
-export default NewUploads
+export default ReportedContent
