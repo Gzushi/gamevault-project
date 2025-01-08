@@ -21,6 +21,7 @@ import android from '../assets/images/android.png'
 import exit from '../assets/images/x.svg'
 import { addGameToUser } from '../api/userApi'
 import { useAuthContext } from "../hooks/useAuthContext"
+import send from '../assets/images/send.svg'
 
 const GameProfile = () => {
     const { fetchAllGames, fetchGameById, fetchDataForGame } = useGamesStore()
@@ -76,11 +77,14 @@ const GameProfile = () => {
                             <div className='grid grid-col justify-between gap-2 p-0.5'>
                                 <CommentCard />
                             </div>
-                            <div className='flex items-center mb-4'>
+                            <div className='flex items-center mb-4 gap-2'>
                                 <textarea name="commentArea"
                                     id="commentArea"
                                     className='bg-[#212121] border-2 border-[#2B2B2B] w-full resize-none outline-none rounded-md'>
                                 </textarea>
+                                <button className='bg-[#212121] flex flex-fit p-2 rounded-[50%] '>
+                                    <img src={ send } alt="Send" className='translate-y-[2px] translate-x-[-1px]'/>
+                                </button>
                             </div>
                         </div>
                     </div>

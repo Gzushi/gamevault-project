@@ -2,7 +2,7 @@ import React from 'react'
 import userprofile from '../assets/images/Aether.jpg'
 import report from '../assets/images/alert-triangle.svg'
 
-const DashNotif = () => {
+const ReportedComments = () => {
     return (
         <div className='bg-[#212121] text-[#D4D4D4] font-sans grid grid-col justify-between gap-2 p-0.5 rounded-md'>
             <div className='bg-[#2B2B2B] p-4 rounded-md flex flex-row gap-4'>
@@ -23,4 +23,4 @@ const DashNotif = () => {
     )
 }
 
-export default DashNotif
+export default ReportedComments

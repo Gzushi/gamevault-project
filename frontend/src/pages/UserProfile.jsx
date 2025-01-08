@@ -58,7 +58,9 @@ const UserProfile = () => {
                     </div>
                     <div className='bg-[#4E1C7D] text-xl flex flex-col px-2 my-1 rounded-sm'>
                         <div>
+
                             <h1 className='text-2xl font-medium pb-[5%]'>{user && user.username}</h1>
+
                         </div>
                         <div className='flex flex-row-8 pl-[1%] pb-[5%] gap-2'>
                             <button>
@@ -75,7 +77,9 @@ const UserProfile = () => {
                             </button>
                         </div>
                     </div>
+
                     <button onClick={handleLogout} className='absolute right-[10px] top-[10px]'>
+
                         <img src={ LogOut } alt="Log Out" />
                     </button>
                 </div>
