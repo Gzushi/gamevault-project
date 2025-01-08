@@ -36,7 +36,7 @@ const AddGames = () => {
         title: 'Success',
         description: message,
         status: 'success',
-        navigate: navigate('/'),
+        navigate: navigate('/home'),
       })
     }
     setNewGame({
