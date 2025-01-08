@@ -26,6 +26,18 @@ const UserSchema = new mongoose.Schema(
             type: [String],
             required: false,
             default: [],
+        likes: {
+            type: Number,
+            default: 0,
+        },
+        dislikes: {
+            type: Number,
+            default: 0,
+        },
+        followers: {
+            type: Number,
+            default: 0,
+
         },
     },
     {
