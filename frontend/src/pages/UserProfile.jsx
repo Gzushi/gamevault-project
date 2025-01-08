@@ -104,7 +104,7 @@ const UserProfile = () => {
                     <div className='w-full pl-10%'> 
                         <div className='bg-[#171717] flex flex-col w-100 gap-4 mb-2 rounded-md'>
                             <div className='flex flex-col w-100 gap-4 px-4 py-6 rounded-sm'>
-                                <p className='font-bold text-lg pl-2'>Recent Comments</p>
+                                <p className='font-bold text-lg pl-2'>Added Games</p>
                                 <div className='grid grid-cols-3 gap-2 p-0.5'>
                                     {games.map(game => (<GameCard game={game} />))}
                                     {/* <CommentCard />
