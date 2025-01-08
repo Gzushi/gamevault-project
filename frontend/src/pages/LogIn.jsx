@@ -8,14 +8,14 @@ const LogIn = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const {login, isLoading, error} = useLogin()
-    const navigate = useNavigate()
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         await login(username, password)
         navigate("/home")
     }
-
+    const navigate = useNavigate()
     return (
         <div className='bg-[#2B2B2B] text-[#D4D4D4] h-screen flex flex-col items-center pt-20'>
             <div className='bg-[#212121] flex flex-col w-fit pb-6 px-4 rounded-md'>
@@ -58,11 +58,13 @@ const LogIn = () => {
                     <p className='px-4'>or</p>
                     <p>__________________</p>
                 </div>
-                <div className='bg-[#212121] p-2     flex flex-row gap-2'>
+                <div className='bg-[#212121] p-2 flex flex-row gap-2 rounded-md'>
                     <p>Don't have an account?</p>
-                    <a href='http://localhost:5173/signup' className='text-[#5b1a87] font-bold'>
-                        Sign Up!
-                    </a>
+                    <div
+                    onClick={() => navigate('/signup')}
+                    className='text-[#5b1a87] font-bold flex flex-col w-100 gap-2'>
+                    <h1>Sign Up!</h1>
+                    </div>
                 </div>
             </div>
             <div className='flex justify-center items-end w-full h-full box-border'>

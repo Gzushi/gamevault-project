@@ -2,19 +2,21 @@ import React, { useState } from 'react'
 import logo from '../assets/images/GameVault.png'
 import Footer from "../components/Footer";
 import useSignUp from "../hooks/useSignup"
+import { useNavigate } from 'react-router-dom'
 
 const createCritic = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
     const {signup, isLoading, error} = useSignUp()
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         
         await signup(username, password, email)
     }
-
+    const navigate = useNavigate()
   return (
     <div className='bg-[#2B2B2B] text-[#D4D4D4] h-screen flex flex-col items-center pt-20'>
         <div className='bg-[#212121] flex flex-col pb-6 px-4 rounded-md'>
@@ -66,11 +68,14 @@ const createCritic = () => {
                 <p>__________________</p>
             </div>
             <div className='bg-[#212121] p-2 flex flex-row gap-2 rounded-md'>
-                <p>Already have an account?</p>
-                <a href='http://localhost:5173//' className='text-[#5b1a87] font-bold'>
-                    Log In!
-                </a>
-            </div>
+                    <p>Already have an account?</p>
+                    <div
+                    onClick={() => navigate('/')}
+                    className='text-[#5b1a87] font-bold flex flex-col w-100 gap-2'
+                    >
+                        <h1>Log In!</h1>
+                    </div>
+                </div>
         </div>
         <div className="flex justify-center items-end w-full h-full box-border">
             <Footer />
