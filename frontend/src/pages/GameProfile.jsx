@@ -14,13 +14,12 @@ import addlist from '../assets/images/plus-circle.svg'
 import report from '../assets/images/alert-triangle.svg'
 import thumbsup from '../assets/images/thumbs-up.svg'
 import thumbsdown from '../assets/images/thumbs-down.svg'
-import profile from '../assets/images/profiletemp.jpg'
 import windows from '../assets/images/windows.png'
 import ios from '../assets/images/ios.png'
 import ps4 from '../assets/images/ps4.png'
 import android from '../assets/images/android.png'
 import exit from '../assets/images/x.svg'
-import { addGameToUser } from '../api/gameApi'
+import { addGameToUser } from '../api/userApi'
 import { useAuthContext } from "../hooks/useAuthContext"
 
 const GameProfile = () => {

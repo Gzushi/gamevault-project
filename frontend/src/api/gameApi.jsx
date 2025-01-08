@@ -1,17 +1,10 @@
-export const addGameToUser = async (gameId, token) => {
+export const getGameById = async (gameId) => {
     try {
-        const response = await fetch("/api/users/addGame", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`, // Include the token if needed
-            },
-            body: JSON.stringify({ gameId }),
-        });
+        const response = await fetch(`/api/games/${gameId}`);
 
         if (!response.ok) {
             const errorData = await response.json();
-            throw new Error(errorData.error || "Failed to add game");
+            throw new Error(errorData.error || "Failed to get game");
         }
 
         const result = await response.json();
