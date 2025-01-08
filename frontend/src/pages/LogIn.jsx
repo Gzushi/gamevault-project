@@ -58,11 +58,14 @@ const LogIn = () => {
                     <p className='px-4'>or</p>
                     <p>__________________</p>
                 </div>
-                <div className='bg-[#212121] p-2     flex flex-row gap-2'>
+                <div className='bg-[#212121] p-2 flex flex-row gap-2 rounded-md'>
                     <p>Don't have an account?</p>
-                    <a href='http://localhost:5173/signup' className='text-[#5b1a87] font-bold'>
-                        Sign Up!
-                    </a>
+                    <div
+                    onClick={() => navigate('')}
+                    className='text-[#5b1a87] font-bold flex flex-col w-100 gap-2'
+                    >
+                        <h1>Sign Up!</h1>
+                    </div>
                 </div>
             </div>
             <div className='flex justify-center items-end w-full h-full box-border'>
