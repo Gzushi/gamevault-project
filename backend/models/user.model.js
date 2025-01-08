@@ -22,6 +22,11 @@ const UserSchema = new mongoose.Schema(
             enum: ["user", "dev", "admin"],
             default: "user",
         },
+        addedGames: {
+            type: [String],
+            required: false,
+            default: [],
+        },
     },
     {
         timestamps: true,
