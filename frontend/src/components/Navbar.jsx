@@ -7,7 +7,7 @@ import profile from '../assets/images/User.png'
 const Navbar = () => {
     const navigate = useNavigate()
     return (
-        <nav className='bg-[#212121] text-[#D4D4D4] font-sans p-[1.5%] w-full flex justify-between'>
+        <nav className='bg-[#212121] text-[#D4D4D4] font-sans p-[1.5%] w-full h-16 flex justify-between'>
             <div className='flex justify-between items-center gap-8'>
                 <div
                     onClick={() => navigate('../')}

@@ -2,9 +2,7 @@ import { useState } from "react";
 import Main from "../components/Main";
 import DefaultLayout from "../layouts/defaultlayout";
 
-function App() {
-    const [count, setCount] = useState(0);
-    
+function App() {    
     return (
         <DefaultLayout>
             <Main />

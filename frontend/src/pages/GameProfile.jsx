@@ -14,49 +14,54 @@ import addlist from '../assets/images/plus-circle.svg'
 import report from '../assets/images/alert-triangle.svg'
 import thumbsup from '../assets/images/thumbs-up.svg'
 import thumbsdown from '../assets/images/thumbs-down.svg'
-import profile from '../assets/images/profiletemp.jpg'
 import windows from '../assets/images/windows.png'
 import ios from '../assets/images/ios.png'
 import ps4 from '../assets/images/ps4.png'
 import android from '../assets/images/android.png'
 import exit from '../assets/images/x.svg'
+import { addGameToUser } from '../api/userApi'
+import { useAuthContext } from "../hooks/useAuthContext"
 import send from '../assets/images/send.svg'
 
 const GameProfile = () => {
-const { fetchAllGames, fetchGameById, fetchDataForGame } = useGamesStore()
-const [ game, setGame ] = useState()
-const [ randomGames, setRandomGames ] = useState([])
-const [ comments, setComments ] = useState([])
-const [ showComments, setShowComments ] = useState(false)
-const [ devLogs, setDevLogs ] = useState([])
-const { id } = useParams()
+    const { fetchAllGames, fetchGameById, fetchDataForGame } = useGamesStore()
+    const [ game, setGame ] = useState()
+    const [ randomGames, setRandomGames ] = useState([])
+    const [ comments, setComments ] = useState([])
+    const [ showComments, setShowComments ] = useState(false)
+    const [ devLogs, setDevLogs ] = useState([])
+    const { id } = useParams()
+    const { user } = useAuthContext()
 
-function getRandomNumber(max) {
-    if (max < 1) {
-      throw new Error("Max value must be at least 1.");
-    }
-    return Math.floor(Math.random() * max) + 1;
-}
-
-useEffect(() => {
-    const renderGame = async () => {
-        const randomGameIds = ['677bc2bfc1c842b3cf9090ef', '677bcea36a9683b7e0e060fd'];
-        const allGames = await fetchAllGames()
-        const data = await fetchGameById(id);
-
-        for (let i = 0; i < 3; i++) {
-            const randomNumber = getRandomNumber(allGames.length)
-            const randomGame = allGames[randomNumber - 1]
-            setRandomGames((prevRandomGames) => [...prevRandomGames, randomGame]);
+    function getRandomNumber(max) {
+        if (max < 1) {
+            throw new Error("Max value must be at least 1.");
         }
-        
-        setGame(data);
-        setComments(await fetchDataForGame(id, "comments"))
-        setDevLogs(await fetchDataForGame(id, "devLogs"))
-    };
+        return Math.floor(Math.random() * max) + 1;
+    }
 
-    renderGame();
-}, []);
+    useEffect(() => {
+        const renderGame = async () => {
+            const allGames = await fetchAllGames()
+            const data = await fetchGameById(id);
+
+            for (let i = 0; i < 3; i++) {
+                const randomNumber = getRandomNumber(allGames.length)
+                const randomGame = allGames[randomNumber - 1]
+                setRandomGames((prevRandomGames) => [...prevRandomGames, randomGame]);
+            }
+            
+            setGame(data);
+            setComments(await fetchDataForGame(id, "comments"))
+            setDevLogs(await fetchDataForGame(id, "devLogs"))
+        };
+
+        renderGame();
+    }, []);
+
+    const handleAddGameToUser = async () => {
+        addGameToUser(id, user.token)
+    };
 
     return (
         <DefaultLayout>
@@ -125,7 +130,7 @@ useEffect(() => {
                                 <button className='min-w-6'>
                                     <img src={ thumbsdown } alt="Thumbs Down" />
                                 </button>
-                                <button className='min-w-6'>
+                                <button onClick={handleAddGameToUser} className='min-w-6'>
                                     <img src={ addlist } alt="Add to List" />
                                 </button>
                                 <button className='min-w-6'>
