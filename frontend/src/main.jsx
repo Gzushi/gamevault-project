@@ -14,11 +14,11 @@ import { AuthContextProvider } from './context/AuthContext.jsx'
 
 const router = createBrowserRouter([
     {
-        path: '/',
+        path: '/home',
         element: <App />,
     },
     {
-        path: '/login',
+        path: '/',
         element: <LogIn />,
     },
     {

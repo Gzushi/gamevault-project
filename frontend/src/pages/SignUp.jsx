@@ -67,7 +67,7 @@ const createCritic = () => {
             </div>
             <div className='bg-[#212121] p-2 flex flex-row gap-2 rounded-md'>
                 <p>Already have an account?</p>
-                <a href='http://localhost:5173/login' className='text-[#5b1a87] font-bold'>
+                <a href='http://localhost:5173//' className='text-[#5b1a87] font-bold'>
                     Log In!
                 </a>
             </div>

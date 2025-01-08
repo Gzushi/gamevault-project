@@ -13,7 +13,7 @@ const LogIn = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         await login(username, password)
-        navigate("/")
+        navigate("/home")
     }
 
     return (
