@@ -26,6 +26,7 @@ const UserSchema = new mongoose.Schema(
             type: [String],
             required: false,
             default: [],
+        },
         likes: {
             type: Number,
             default: 0,
@@ -37,7 +38,6 @@ const UserSchema = new mongoose.Schema(
         followers: {
             type: Number,
             default: 0,
-
         },
     },
     {

@@ -20,10 +20,10 @@ const Navbar = () => {
             </div>
             <div className='flex gap-4 items-center'>
                 <div
-                    onClick={() => navigate('')}
+                    onClick={() => navigate('/addgames')}
                     className='p-1.5'
                     >
-                    <p>Become a Dev!</p>
+                    <p>Create Games</p>
                 </div>
                 <div
                     onClick={() => navigate('../userprofile')}
