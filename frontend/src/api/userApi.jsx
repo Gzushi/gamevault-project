@@ -21,15 +21,15 @@ export const addGameToUser = async (gameId, token) => {
     }
 };
 
-export const getAddedGames = async (userId, token) => {
+export const getAddedGames = async (token) => {
     try {
-        const response = await fetch(`/api/users/${userId}/addedGames`, {
+        const response = await fetch(`/api/users/addedGames`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`, // Include the token if needed
             },
-            body: JSON.stringify({ userId }),
+            // body: JSON.stringify({ userId }),
         });
 
         if (!response.ok) {

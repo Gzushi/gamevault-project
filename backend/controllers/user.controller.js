@@ -60,7 +60,7 @@ export const addGameToUser = async (req, res) => {
 };
 
 export const getAddedGames = async (req, res) => {
-    const { userId } = req.params;
+    const userId = req.user._id;
 
     if (!userId) {
         return res.status(400).json({ error: "User ID is required" });

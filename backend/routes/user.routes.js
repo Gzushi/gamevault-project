@@ -15,6 +15,6 @@ router.post("/signup", signupUser);
 
 router.post("/addGame", requireAuth, addGameToUser);
 
-router.post("/:userId/addedGames", requireAuth, getAddedGames);
+router.post("/addedGames", requireAuth, getAddedGames);
 
 export default router;

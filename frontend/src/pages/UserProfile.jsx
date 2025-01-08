@@ -32,11 +32,7 @@ const UserProfile = () => {
     useEffect(() => {
         const getGames = async () => {
             if (user) {
-                const userGames = await getAddedGames("677d337b511d9f52a07292d6", user.token)
-
-                if (games.length) {
-                    setGames([])
-                }
+                const userGames = await getAddedGames(user.token)
 
                 for (const gameId of userGames.addedGames) {
                     const game = await getGameById(gameId)
