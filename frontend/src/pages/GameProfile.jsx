@@ -92,7 +92,7 @@ const GameProfile = () => {
             )}
             <div className='bg-[#2B2B2B] text-[#D4D4D4] font-sans px-4 py-6'>
                 <div className='grid grid-cols-[60%_1fr] pb-4'>
-                    <img src={ game?.image } alt="tempgamelogo" className='bg-[#270E3F] p-0.5 w-full rounded-sm'/>
+                    <img src={ game?.icon } alt="tempgamelogo" className='bg-[#270E3F] p-0.5 w-full rounded-sm'/>
                     <div className='flex flex-col justify-between items-center w-full h-full mx-2'>
                         <div className='bg-[#212121] flex flex-col gap-3 min-h-60 rounded-md px-4 py-2'>
                             <div className='flex flex-row gap-5 min-h-14'>
@@ -154,9 +154,9 @@ const GameProfile = () => {
                     </div>
                     <div className='w-full pl-10%'>
                         <div className='bg-[#171717] grid grid-cols-[repeat(3,1fr)] p-4 gap-2 rounded-md'>
-                            <img src={logo} alt='templogo' className='w-full bg-[#270E3F] p-0.5 rounded-md' />
-                            <img src={logo} alt='templogo' className='w-full bg-[#270E3F] p-0.5 rounded-md' />
-                            <img src={logo} alt='templogo' className='w-full bg-[#270E3F] p-0.5 rounded-md' />
+                            <img src={game?.gplay1} alt='templogo' className='w-full bg-[#270E3F] p-0.5 rounded-md' />
+                            <img src={game?.gplay2} alt='templogo' className='w-full bg-[#270E3F] p-0.5 rounded-md' />
+                            <img src={game?.image} alt='templogo' className='w-full bg-[#270E3F] p-0.5 rounded-md' />
                         </div>
                         <div className='bg-[#171717] flex flex-col w-100 gap-4 mt-4 rounded-md'>
                             <div className='flex flex-col w-100 gap-4 px-4 py-6 rounded-sm'>

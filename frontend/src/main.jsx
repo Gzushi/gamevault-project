@@ -9,6 +9,7 @@ import AddGames from './pages/AddGames'
 import GameProfile from './pages/GameProfile'
 import UserProfile from './pages/UserProfile'
 import DevProfile from './pages/DevProfile'
+import Dashboard from './pages/Dashboard'
 import { AuthContextProvider } from './context/AuthContext.jsx'
 
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
     {
         path: '/devprofile',
         element: <DevProfile />,
+    },
+    {
+        path: '/dashboard',
+        element: <Dashboard />,
     },
 ])
 
