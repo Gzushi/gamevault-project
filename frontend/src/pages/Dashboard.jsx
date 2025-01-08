@@ -14,7 +14,7 @@ const Dashboard = () => {
                 <div className='flex flex-row'>
                     <div className='flex flex-col gap-2 mr-6    '>
                         <div
-                            onClick={() => navigate('')}
+                            onClick={() => navigate('/home')}
                             >
                             <img src={ logo } alt='GameVault' className='max-h-16'/>
                         </div>

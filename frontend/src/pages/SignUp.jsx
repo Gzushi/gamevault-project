@@ -83,6 +83,15 @@ const createCritic = () => {
             <div className="flex justify-center items-end w-full h-full box-border">
                 <Footer />
             </div>
+            <div className='bg-[#212121] p-2 flex flex-row gap-2 rounded-md'>
+                <p>Already have an account?</p>
+                <a href='http://localhost:5173//' className='text-[#5b1a87] font-bold'>
+                    Log In!
+                </a>
+            </div>
+        </div>
+        <div className="flex justify-center items-end w-full h-full box-border">
+            <Footer />
         </div>
     )
 }

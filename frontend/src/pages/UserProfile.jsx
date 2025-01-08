@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import DefaultLayout from '../layouts/defaultlayout'
 import CommentCard from '../components/CommentCard'
 import UserColumnGrid from '../components/UserColumnGrid'
 import UserOrDevMetrics from '../components/UserOrDevMetrics'
+import GameCard from "../components/GameCard"
 
-import userprofile from '../assets/images/Aether.jpg'
+import userprofile from '../assets/images/User.png'
 import follow from '../assets/images/heart.svg'
 import report from '../assets/images/alert-triangle.svg'
 import thumbsup from '../assets/images/thumbs-up.svg'
@@ -14,16 +15,36 @@ import LogOut from '../assets/images/power.svg'
 import { useLogout } from "../hooks/useLogout"
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useNavigate } from 'react-router-dom'
+import { getAddedGames } from '../api/userApi'
+import { getGameById } from '../api/gameApi'
 
-const UserProfile = ({ games }) => {
+const UserProfile = () => {
+    const [games, setGames] = useState([])
     const { logout } = useLogout()
     const { user } = useAuthContext()
     const navigate = useNavigate()
 
     const handleLogout = () => {
         logout()
-        navigate("/login")
+        navigate("/")
     }
+
+    useEffect(() => {
+        const getGames = async () => {
+            if (user) {
+                const userGames = await getAddedGames(user.token)
+
+                for (const gameId of userGames.addedGames) {
+                    const game = await getGameById(gameId)
+                    setGames((prevGames) => [...prevGames, game.data]);
+                    console.log(game)
+                }
+            }
+        }
+
+        getGames()
+    }, [user])
+
     return (
         <DefaultLayout>
             <div className='bg-[#2B2B2B] text-[#D4D4D4] font-sans'>
@@ -79,11 +100,12 @@ const UserProfile = ({ games }) => {
                     <div className='w-full pl-10%'> 
                         <div className='bg-[#171717] flex flex-col w-100 gap-4 mb-2 rounded-md'>
                             <div className='flex flex-col w-100 gap-4 px-4 py-6 rounded-sm'>
-                                <p className='font-bold text-lg pl-2'>Recent Comments</p>
-                                <div className='grid grid-col justify-between gap-2 p-0.5'>
+                                <p className='font-bold text-lg pl-2'>Added Games</p>
+                                <div className='grid grid-cols-3 gap-2 p-0.5'>
+                                    {games.map(game => (<GameCard game={game} />))}
+                                    {/* <CommentCard />
                                     <CommentCard />
-                                    <CommentCard />
-                                    <CommentCard />
+                                    <CommentCard /> */}
                                 </div>
                             </div>
                         </div>

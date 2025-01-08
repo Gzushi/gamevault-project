@@ -14,49 +14,54 @@ import addlist from '../assets/images/plus-circle.svg'
 import report from '../assets/images/alert-triangle.svg'
 import thumbsup from '../assets/images/thumbs-up.svg'
 import thumbsdown from '../assets/images/thumbs-down.svg'
-import profile from '../assets/images/profiletemp.jpg'
 import windows from '../assets/images/windows.png'
 import ios from '../assets/images/ios.png'
 import ps4 from '../assets/images/ps4.png'
 import android from '../assets/images/android.png'
 import exit from '../assets/images/x.svg'
+import { addGameToUser } from '../api/userApi'
+import { useAuthContext } from "../hooks/useAuthContext"
 import send from '../assets/images/send.svg'
 
 const GameProfile = () => {
-const { fetchAllGames, fetchGameById, fetchDataForGame } = useGamesStore()
-const [ game, setGame ] = useState()
-const [ randomGames, setRandomGames ] = useState([])
-const [ comments, setComments ] = useState([])
-const [ showComments, setShowComments ] = useState(false)
-const [ devLogs, setDevLogs ] = useState([])
-const { id } = useParams()
+    const { fetchAllGames, fetchGameById, fetchDataForGame } = useGamesStore()
+    const [ game, setGame ] = useState()
+    const [ randomGames, setRandomGames ] = useState([])
+    const [ comments, setComments ] = useState([])
+    const [ showComments, setShowComments ] = useState(false)
+    const [ devLogs, setDevLogs ] = useState([])
+    const { id } = useParams()
+    const { user } = useAuthContext()
 
-function getRandomNumber(max) {
-    if (max < 1) {
-      throw new Error("Max value must be at least 1.");
-    }
-    return Math.floor(Math.random() * max) + 1;
-}
-
-useEffect(() => {
-    const renderGame = async () => {
-        const randomGameIds = ['677bc2bfc1c842b3cf9090ef', '677bcea36a9683b7e0e060fd'];
-        const allGames = await fetchAllGames()
-        const data = await fetchGameById(id);
-
-        for (let i = 0; i < 3; i++) {
-            const randomNumber = getRandomNumber(allGames.length)
-            const randomGame = allGames[randomNumber - 1]
-            setRandomGames((prevRandomGames) => [...prevRandomGames, randomGame]);
+    function getRandomNumber(max) {
+        if (max < 1) {
+            throw new Error("Max value must be at least 1.");
         }
-        
-        setGame(data);
-        setComments(await fetchDataForGame(id, "comments"))
-        setDevLogs(await fetchDataForGame(id, "devLogs"))
-    };
+        return Math.floor(Math.random() * max) + 1;
+    }
 
-    renderGame();
-}, []);
+    useEffect(() => {
+        const renderGame = async () => {
+            const allGames = await fetchAllGames()
+            const data = await fetchGameById(id);
+
+            for (let i = 0; i < 3; i++) {
+                const randomNumber = getRandomNumber(allGames.length)
+                const randomGame = allGames[randomNumber - 1]
+                setRandomGames((prevRandomGames) => [...prevRandomGames, randomGame]);
+            }
+            
+            setGame(data);
+            setComments(await fetchDataForGame(id, "comments"))
+            setDevLogs(await fetchDataForGame(id, "devLogs"))
+        };
+
+        renderGame();
+    }, []);
+
+    const handleAddGameToUser = async () => {
+        addGameToUser(id, user.token)
+    };
 
     return (
         <DefaultLayout>
@@ -87,7 +92,7 @@ useEffect(() => {
             )}
             <div className='bg-[#2B2B2B] text-[#D4D4D4] font-sans px-4 py-6'>
                 <div className='grid grid-cols-[60%_1fr] pb-4'>
-                    <img src={ game?.image } alt="tempgamelogo" className='bg-[#270E3F] p-0.5 w-full rounded-sm'/>
+                    <img src={ game?.icon } alt="tempgamelogo" className='bg-[#270E3F] p-0.5 w-full rounded-sm'/>
                     <div className='flex flex-col justify-between items-center w-full h-full mx-2'>
                         <div className='bg-[#212121] flex flex-col gap-3 min-h-60 rounded-md px-4 py-2'>
                             <div className='flex flex-row gap-5 min-h-14'>
@@ -125,7 +130,7 @@ useEffect(() => {
                                 <button className='min-w-6'>
                                     <img src={ thumbsdown } alt="Thumbs Down" />
                                 </button>
-                                <button className='min-w-6'>
+                                <button onClick={handleAddGameToUser} className='min-w-6'>
                                     <img src={ addlist } alt="Add to List" />
                                 </button>
                                 <button className='min-w-6'>
@@ -149,9 +154,9 @@ useEffect(() => {
                     </div>
                     <div className='w-full pl-10%'>
                         <div className='bg-[#171717] grid grid-cols-[repeat(3,1fr)] p-4 gap-2 rounded-md'>
-                            <img src={logo} alt='templogo' className='w-full bg-[#270E3F] p-0.5 rounded-md' />
-                            <img src={logo} alt='templogo' className='w-full bg-[#270E3F] p-0.5 rounded-md' />
-                            <img src={logo} alt='templogo' className='w-full bg-[#270E3F] p-0.5 rounded-md' />
+                            <img src={game?.gplay1} alt='templogo' className='w-full bg-[#270E3F] p-0.5 rounded-md' />
+                            <img src={game?.gplay2} alt='templogo' className='w-full bg-[#270E3F] p-0.5 rounded-md' />
+                            <img src={game?.image} alt='templogo' className='w-full bg-[#270E3F] p-0.5 rounded-md' />
                         </div>
                         <div className='bg-[#171717] flex flex-col w-100 gap-4 mt-4 rounded-md'>
                             <div className='flex flex-col w-100 gap-4 px-4 py-6 rounded-sm'>

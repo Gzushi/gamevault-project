@@ -2,15 +2,15 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import logo from '../assets/images/GameVault.png'
-import profile from '../assets/images/Aether.jpg'
+import profile from '../assets/images/User.png'
 
 const Navbar = () => {
     const navigate = useNavigate()
     return (
-        <nav className='bg-[#212121] text-[#D4D4D4] font-sans p-[1.5%] w-full flex justify-between'>
+        <nav className='bg-[#212121] text-[#D4D4D4] font-sans p-[1.5%] w-full h-16 flex justify-between'>
             <div className='flex justify-between items-center gap-8'>
                 <div
-                    onClick={() => navigate('../')}
+                    onClick={() => navigate('/home')}
                     >
                     <img src={ logo } alt='GameVault' className='max-h-[8vh]'/>
                 </div>
@@ -19,11 +19,17 @@ const Navbar = () => {
                 </div>
             </div>
             <div className='flex gap-4 items-center'>
-                <div
-                    onClick={() => navigate('')}
+            <div
+                    onClick={() => navigate('/dashboard')}
                     className='p-1.5'
                     >
-                    <p>Become a Dev!</p>
+                    <p>Dashboard</p>
+                </div>
+                <div
+                    onClick={() => navigate('/addgames')}
+                    className='p-1.5'
+                    >
+                    <p>Create Games</p>
                 </div>
                 <div
                     onClick={() => navigate('../userprofile')}
